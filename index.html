@@ -3,202 +3,151 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-		<link rel="stylesheet" type="text/css" href="css/weui.min.css"/>
-		<link rel="stylesheet" type="text/css" href="css/base.css"/>
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<style type="text/css">
-			
-		</style>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<script type="text/javascript">
+			//location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxe0f9974fb42fff1a&redirect_uri=https://www.ackao.cn/weixinSign/sign.html&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
+		</script>
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/app.css"/>
+		<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_483809_vy8u1m2ivs1nhfr.css"/>
 	</head>
 	<body>
-		<div class="container">
-			<div class="head">
-				<div class="success-icon">
-					<i class="weui-icon-success weui-icon_msg"></i>
-				</div>
-				<h3>已签到</h3>
-			</div>
-			
-			<div class="caidai">
-				<img src="img/caidai3.png" alt="" />
-			</div>
-			
-			<div class="box">
-				<div class="xian">
-					
-				</div>
-				<div class="show">
-					签到派豆 <span class="num">19</span>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">兑换商城</h1>
+		</header>
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item mui-active" href="#tabbar">
+				<span class="mui-icon iconfont icon-shouye"></span>
+				<span class="mui-tab-label">首页</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-chat">
+				<span class="mui-icon iconfont icon-shangcheng"></span>
+				<span class="mui-tab-label">商城</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-map">
+				<span class="mui-icon iconfont icon-wode"></span>
+				<span class="mui-tab-label">我</span>
+			</a>
+		</nav>
+		<div class="mui-content">
+			<div id="tabbar" class="mui-control-content mui-active">
+				<!--轮播图-->
+				<div class="mui-slider">
+				  <div class="mui-slider-group">
+				    <!--第一个内容区容器-->
+				    <div class="mui-slider-item">
+				      <img src="img/signBanner.png" alt="" />
+				    </div>
+				  </div>
 				</div>
 				
-				<div class="table-head">
-					<div class="today">
-						<span id="today-year">2017</span>年
-						<span id="today-month">11</span>月
-					</div>
-					<div class="my-jinyan">
-						我的派豆：<span class="num">19</span>
-					</div>
-				</div>
-				
-				<table class="day"  border="0" cellspacing="0" cellpadding="0">
-					
-				</table>
-			</div>
-			
-			<div class="signTop">
-				<div class="signTop-head">
-					<div>签到top10</div>
-					<div>
-						今日已签到<span id="signNum">7</span>人,我的排名<span id="paiming">5</span>
-					</div>
-				</div>
-				<ul>
-					<li class="ul-head">
-						<div>用户</div>
-						<div>排名</div>
-					</li>
-					
-					<li class="ul-body">
-						<div class="userInfo">
-							<div class="userFace">
-								<img src="img/face2.jpg" alt="头像" title="头像" />
-							</div>
-							<div class="userName">
-								小九妹
-							</div>
-						</div>
-						<div class="level">1</div>
-					</li>	
-					<!--以下为重复部分-->
-					<li class="ul-body">
-						<div class="userInfo">
-							<div class="userFace">
-								<img src="img/face2.jpg" alt="头像" title="头像" />
-							</div>
-							<div class="userName">
-								小九妹
-							</div>
-						</div>
-						<div class="level">1</div>
-					</li>		
-					<li class="ul-body">
-						<div class="userInfo">
-							<div class="userFace">
-								<img src="img/face2.jpg" alt="头像" title="头像" />
-							</div>
-							<div class="userName">
-								小九妹
-							</div>
-						</div>
-						<div class="level">1</div>
-					</li>		
-					<li class="ul-body">
-						<div class="userInfo">
-							<div class="userFace">
-								<img src="img/face2.jpg" alt="头像" title="头像" />
-							</div>
-							<div class="userName">
-								小九妹
-							</div>
-						</div>
-						<div class="level">1</div>
-					</li>		
-					<li class="ul-body">
-						<div class="userInfo">
-							<div class="userFace">
-								<img src="img/face2.jpg" alt="头像" title="头像" />
-							</div>
-							<div class="userName">
-								小九妹
-							</div>
-						</div>
-						<div class="level">1</div>
-					</li>		
-					<!--重复部分结束-->
+				<!--活动列表-->
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell mui-media">
+				        <a href="javascript:;">
+				            <div class="mui-media-body">
+				               	 推荐活动
+				            </div>
+				        </a>
+				    </li>
+				    <li class="mui-table-view-cell mui-media media-active">
+				        <a href="javascript:;">
+				            <img class="mui-media-object mui-pull-left" src="img/qian.jpg">
+				            <div class="mui-media-body">
+				            	<h4>签到</h4>
+				                <p class='mui-ellipsis'>能每日签到赚派豆，派豆可以兑换商品</p>
+				            </div>
+				        </a>
+				    </li>
+				    
 				</ul>
+				
 			</div>
-			
-			<div class="panel">
-				<div class="panel-head">
-					签到规则
+			<div id="tabbar-with-chat" class="mui-control-content">
+				<div class="mui-content">
+				    <div class="mui-row">
+				        <div class="mui-col-sm-6 mui-col-xs-12">
+				            <div class="mui-card">
+								<div class="mui-card-header mui-card-media" style="height:40vw;background-image:url(img/product1.jpg)"></div>
+								<div class="mui-card-content">
+									<div class="mui-card-content-inner">
+										<p style="color: #333;">闷烧杯</p>
+									</div>
+								</div>
+								<div class="mui-card-footer">
+									<span class="mui-card-link"><span class="price">50</span><i class="iconfont icon-dou"></i></span>
+									<a class="mui-card-link">立即兑换</a>
+								</div>
+							</div>
+				        </div>
+				        <div class="mui-col-sm-6 mui-col-xs-12">
+				            <div class="mui-card">
+								<div class="mui-card-header mui-card-media" style="height:40vw;background-image:url(img/product2.jpg)"></div>
+								<div class="mui-card-content">
+									<div class="mui-card-content-inner">
+										<p style="color: #333;">四叶草纯银手镯</p>
+									</div>
+								</div>
+								<div class="mui-card-footer">
+									<span class="mui-card-link"><span class="price">50</span><i class="iconfont icon-dou"></i></span>
+									<a class="mui-card-link">立即兑换</a>
+								</div>
+							</div>
+				        </div>
+				        <div class="mui-col-sm-6 mui-col-xs-12">
+				            <div class="mui-card">
+								<div class="mui-card-header mui-card-media" style="height:40vw;background-image:url(img/product3.jpg)"></div>
+								<div class="mui-card-content">
+									<div class="mui-card-content-inner">
+										<p style="color: #333;">海洋限量版洁面仪硅胶电动声波洁面仪</p>
+									</div>
+								</div>
+								<div class="mui-card-footer">
+									<span class="mui-card-link"><span class="price">50</span><i class="iconfont icon-dou"></i></span>
+									<a class="mui-card-link">立即兑换</a>
+								</div>
+							</div>
+				        </div>
+				    </div>
 				</div>
-				<div class="panel-body">
-					<p>
-						1.每天签到可领取3个派豆;
-					</p>
-					<p>
-						2.每天签到前十名，可额外获取5个派豆;
-					</p>
-					<p>
-						3.连续签到7天可额外获取7个派豆、连续签到15天可额外获取10个派豆、连续签到30天可额外获取20个派豆;
-					</p>
-					<p>
-						4.派豆可以兑换派普肽产品的优惠券以及其他各种礼品，还能用于参与各种兑换活动哦，请大家按时签到，及时领取哦！;
-					</p>
-				</div>
+				
+				
+				
 			</div>
-			
-			
+			<div id="tabbar-with-map" class="mui-control-content">
+				<div class="myHead">
+					<div class="myFace">
+						<img src="img/face9.jpg" alt="头像" />
+					</div>
+					<p class="myName">欧阳夏花</p>
+				</div>
+				<ul class="mui-table-view">
+				    <li class="mui-table-view-cell">
+				        <a class="mui-navigate-right"><i class="iconfont icon-dingdan"></i> 我的订单</a>
+				    </li>
+				    <li class="mui-table-view-cell">
+				        <a class="mui-navigate-right"><i class="iconfont icon-dou"></i> 我的派豆</a>
+				    </li>
+				    <li class="mui-table-view-cell">
+				        <a class="mui-navigate-right"><i class="iconfont icon-dizhi"></i> 常用地址</a>
+				    </li>
+				    <li class="mui-table-view-cell">
+				        <a class="mui-navigate-right"><i class="iconfont icon-icon_lianxi"></i> 联系我们</a>
+				    </li>
+				</ul>
+				
+				
+			</div>
 		</div>
-		
-		
-		
-		<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-	    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-	    <script src="https://res.wx.qq.com/open/libs/weuijs/1.0.0/weui.min.js"></script>
-		
-		<script type="text/javascript">
-			function daysInMonth(month, year) {
-		      return new Date(year, month+1, 0).getDate();
-		    }
-		
-		    var weeks = ['周日','周一','周二','周三','周四','周五','周六'];
-	
-		    var year = new Date().getFullYear();
-		    var dayStr = '';
-			var month = new Date().getMonth();	//获取当前月份
-		    
-	        // 每个月的第一天
-	        var firstDay = new Date(year,month,1); 
-	        var dayInMonth = daysInMonth(month,year);
-	        // 每个月的最后一天
-	        var lastDay = new Date(year,month,dayInMonth);
-	
-	        // 第一天星期几(0-6)
-	        var weekday = firstDay.getDay(); 
-	        // 最后一天星期几
-	        var lastDayWeekDay = lastDay.getDay();
-	        // 每一个都是从1号开始
-	        var date = 1;
-	
-	        dayStr += '<tr><td>'+weeks.join('</td><td>') + '</td></tr>';
-	
-	        // 补齐前面的空格
-	        for(var i = 0; i < weekday; i++){
-	            dayStr +='<td></td>';
-	        }
-
-	        for(;date <= dayInMonth;date++){
-	            dayStr +="<td class='data'>"+ date + "</td>";
-	            weekday++
-	
-	            if(weekday%7 == 0){
-	                weekday = 0;
-	                dayStr ='<tr>'+dayStr+'</tr>';
-	            }
-	        }
-	
-	        // 补齐后面的空格
-	        for(var j = 0; j < (7 - lastDayWeekDay - 1); j++){
-	            dayStr += '<td></td>';
-	        }
-	
-	        $('.day').html(dayStr);
-		    
-		    $('.data:eq(20)').css({'color':'#fff','background':'#519c4a','display':'flex','flex-direction':'column'});
-		    $('.data:eq(20)').append('<i class="weui-icon-success-no-circle" style="margin-top:-6px;color: #fff;"></i>')
-
-		</script>
 	</body>
+	<script src="../js/mui.min.js"></script>
+	<script>
+		mui.init({
+			swipeBack:true //启用右滑关闭功能
+		});
+	</script>
 </html>

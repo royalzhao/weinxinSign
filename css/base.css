@@ -18,7 +18,7 @@ body{
 	background-attachment: fixed;
 	
 	background-size: cover;
-	
+	position: relative;
 }
 .container{
 	width: 100%;
@@ -220,3 +220,73 @@ body{
 	line-height: 1.8rem;
 }
 /*已签到模式*/
+
+
+
+.modal .bg{
+	position: absolute;
+	background: rgba(0,0,0,0.5);
+	width: 100%;
+	height: 100%;
+	top: 0;
+	z-index: 1000;
+}
+.modal-success{
+	width: 80%;
+	margin: 0 auto;
+	text-align: center;
+	background: #EFEFEF;
+	padding: 2rem 0;
+	margin-top: -6rem;
+}
+.modal .modal-success{
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-left: -40%;
+	
+	z-index: 10001;
+	border-radius: 5px;
+}
+.modal .modal-success p{
+	margin: 1rem 0;
+}
+.modal .modal-success .queren{
+	width: 50%;
+	padding: 0.5rem;
+	border: 0;
+	background: #f86544;
+	color: #fff;
+	font-size: 1rem;
+	border-radius: 5px;
+}
+
+.modal-error{
+	width: 80%;
+	margin: 0 auto;
+	text-align: center;
+	background: #EFEFEF;
+	padding: 2rem 0;
+	margin-top: -6rem;
+}
+.modal .modal-error{
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-left: -40%;
+	
+	z-index: 10001;
+	border-radius: 5px;
+}
+.modal .modal-error p{
+	margin: 1rem 0;
+}
+.modal .modal-error .queren{
+	width: 50%;
+	padding: 0.5rem;
+	border: 0;
+	background: #f86544;
+	color: #fff;
+	font-size: 1rem;
+	border-radius: 5px;
+}

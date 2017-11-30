@@ -77,3 +77,56 @@ a{
 .noList p{
 	color: #ccc;
 }
+.mui-ellipsis i{
+	color: #FACF26;
+}
+.mui-ellipsis .mui-btn-green{
+	float: right;
+	color: #03BDB2;
+	border-color:#03BDB2;
+}
+.mui-ellipsis .mui-btn-green:active{
+	background: #03BDB2;
+}
+/*我的派豆页*/
+.paidou .paidouNum{
+	font-size: 4rem;
+	margin: 5rem 0;
+	text-align: center;
+}
+.paidou .paidouNum i{
+	font-size: 4rem;	
+	color: #FACF26;
+}
+.paidou a{
+	width: 90%;
+	margin: 1rem auto;
+	padding: 10px 0;
+}
+.paidou a:nth-of-type(1){
+	background-color: #F99F28;
+	border-color: #F99F28;
+}
+.paidou a:nth-of-type(2){
+	background-color: #01C4FD;
+	border-color: #01C4FD;
+}
+/*常用地址页*/
+.addAdress{
+	padding: 10px 0;
+	width: 90%;
+	margin: 1rem auto;
+	background: #03BDB2;
+	border-color: #03BDB2;
+}
+
+/*联系我们页面*/
+.mui-card .mui-input-group .mui-input-row:nth-of-type(2){
+	height: auto;
+}
+.mui-card .mui-input-group .mui-input-row:nth-of-type(2) textarea{
+	height: 5rem;
+}
+.mui-card .contact_footer{
+	text-align: center;
+}

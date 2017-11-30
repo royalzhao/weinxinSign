@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>我的订单</title>
+		<title>常用地址</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -11,48 +11,48 @@
 		<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
 		<link rel="stylesheet" type="text/css" href="css/index.css"/>
 		<link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_483809_vy8u1m2ivs1nhfr.css"/>
+		
 	</head>
 	<body>
 		<header class="mui-bar mui-bar-nav">
-		    <a id="goBack" href="index.html#tabbar-with-map" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-		    <h1 class="mui-title">我的订单</h1>
+		    <a id="goBack" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">联系我们</h1>
 		</header>
 		<div class="mui-content">
-			<div class="noList">
-				<i class="mui-icon mui-icon-info"></i>
-				<p>
-					您还没有任何订单，赶紧去兑换吧
-				</p>
+			<div class="mui-card">
+				<form class="mui-input-group">
+				    <div class="mui-input-row">
+				        <label>标题</label>
+				        <input type="text" class="mui-input-clear" placeholder="请输入标题">
+				    </div>
+				    <div class="mui-input-row">
+				        <label>内容</label>
+				        <textarea type="text" placeholder="请输入内容"></textarea>
+				    </div>
+				    
+				    
+				</form>
+				<button type="button" class="mui-btn mui-btn-success mui-btn-block addAdress">提交</button>
+				<div class="contact_footer">
+					<p>
+						或拨打我们的联系电话：010-57203326
+					</p>
+				</div>
+				
 			</div>
-			<ul class="mui-table-view">
-			    <li class="mui-table-view-cell mui-media">
-			        <a href="javascript:;">
-			            <img class="mui-media-object mui-pull-left" src="img/product2.jpg">
-			            <div class="mui-media-body">
-			                	<h4>四叶草手环</h4>
-			                <p class="mui-ellipsis"> 
-			                	<i class="iconfont icon-dou"></i>30 
-			                	<button type="button" class="mui-btn mui-btn-green mui-btn-outlined">确认收货</button>
-			                </p>
-			            </div>
-			        </a>
-			    </li>
-			    
-			</ul>
+			
 		</div>
 		
 		
 		
 		
 		
-		
 	</body>
-	<script src="../js/mui.min.js"></script>
+	<script src="js/mui.min.js"></script>
 	<script>
 		mui.init({
 			swipeBack:true //启用右滑关闭功能
 		});
-		
 		var goBack = document.getElementById('goBack');
 		
 		goBack.addEventListener('tap',function(){

@@ -63,6 +63,15 @@
 				            </div>
 				        </a>
 				    </li>
+				    <li class="mui-table-view-cell mui-media media-active">
+				        <a href="javascript:;">
+				            <img class="mui-media-object mui-pull-left" src="img/qian.jpg">
+				            <div class="mui-media-body">
+				            	<h4>兑换</h4>
+				                <p class='mui-ellipsis'>每日签到的派豆，可以兑换丰富实用的商品</p>
+				            </div>
+				        </a>
+				    </li>
 				    
 				</ul>
 				
@@ -127,16 +136,16 @@
 				</div>
 				<ul class="mui-table-view">
 				    <li class="mui-table-view-cell">
-				        <a class="mui-navigate-right"><i class="iconfont icon-dingdan"></i> 我的订单</a>
+				        <a id="goList" class="mui-navigate-right"><i class="iconfont icon-dingdan"></i> 我的订单</a>
 				    </li>
 				    <li class="mui-table-view-cell">
-				        <a class="mui-navigate-right"><i class="iconfont icon-dou"></i> 我的派豆</a>
+				        <a id="goPaidou" href="paidou.html" class="mui-navigate-right"><i class="iconfont icon-dou"></i> 我的派豆</a>
 				    </li>
 				    <li class="mui-table-view-cell">
-				        <a class="mui-navigate-right"><i class="iconfont icon-dizhi"></i> 常用地址</a>
+				        <a id="goAdress" class="mui-navigate-right"><i class="iconfont icon-dizhi"></i> 常用地址</a>
 				    </li>
 				    <li class="mui-table-view-cell">
-				        <a class="mui-navigate-right"><i class="iconfont icon-icon_lianxi"></i> 联系我们</a>
+				        <a id="goPhone" class="mui-navigate-right"><i class="iconfont icon-icon_lianxi"></i> 联系我们</a>
 				    </li>
 				</ul>
 				
@@ -149,5 +158,34 @@
 		mui.init({
 			swipeBack:true //启用右滑关闭功能
 		});
+		var goList = document.getElementById('goList');
+		var goPaidou = document.getElementById('goPaidou');
+		var goAdress = document.getElementById('goAdress');
+		var goPhone = document.getElementById('goPhone');
+		
+		goList.addEventListener('tap',function(){
+			mui.openWindow({
+			    id:'list.html',
+			    url:'list.html'        
+			  });
+		})
+		goPaidou.addEventListener('tap',function(){
+			mui.openWindow({
+			    id:'paidou.html',
+			    url:'paidou.html'        
+			  });
+		})
+		goAdress.addEventListener('tap',function(){
+			mui.openWindow({
+			    id:'adress.html',
+			    url:'adress.html'        
+			  });
+		})
+		goPhone.addEventListener('tap',function(){
+			mui.openWindow({
+			    id:'contact.html',
+			    url:'contact.html'        
+			  });
+		})
 	</script>
 </html>

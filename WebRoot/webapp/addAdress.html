@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>常用地址</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/app.css"/>
+		<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_483809_vy8u1m2ivs1nhfr.css"/>
+		<link href="css/mui.picker.css" rel="stylesheet" />
+		<link href="css/mui.poppicker.css" rel="stylesheet" />
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a id="goBack" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">新增地址</h1>
+		</header>
+		<div class="mui-content">
+			<form class="mui-input-group">
+			    <div class="mui-input-row">
+			        <label>姓名</label>
+			        <input type="text" class="mui-input-clear" placeholder="请输入联系人姓名">
+			    </div>
+			    <div class="mui-input-row">
+			        <label>手机</label>
+			        <input type="text" class="mui-input-clear" placeholder="请输入手机号码">
+			    </div>
+			    <div class="mui-input-row">
+			        <label>省市县</label>
+			        <input type="text" id="showCityPicker3" class="mui-input-clear" value="请选择" readonly="">
+			    </div>
+			    
+			    <div class="mui-input-row">
+			        <label>详细地址</label>
+			        <input type="text" id="showUserPicker" class="mui-input-clear" value="" readonly="">
+			    </div>
+			    <div class="mui-input-row">
+			        <label>是否默认</label>
+			        <!-- 开关打开状态，多了一个.mui-active类 -->
+					<div class="mui-switch mui-active">
+					  <div class="mui-switch-handle"></div>
+					</div>
+			    </div>
+			    
+			</form>
+			<button type="button" class="mui-btn mui-btn-success mui-btn-block addAdress">保存</button>
+		</div>
+		
+		
+		
+		
+		
+	</body>
+	<script src="js/mui.min.js"></script>
+	<script src="js/mui.picker.js"></script>
+	<script src="js/mui.poppicker.js"></script>
+	<script src="js/city.data-3.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		mui.init({
+			swipeBack:true //启用右滑关闭功能
+		});
+		
+		(function($, doc) {
+			$.init();
+			$.ready(function() {
+				var _getParam = function(obj, param) {
+					return obj[param] || '';
+				};
+				var cityPicker3 = new $.PopPicker({
+					layer: 3
+				});
+				cityPicker3.setData(cityData3);
+				var showCityPickerButton = doc.getElementById('showCityPicker3');
+				var cityResult3 = doc.getElementById('showCityPicker3');
+				showCityPickerButton.addEventListener('tap', function(event) {
+					cityPicker3.show(function(items) {
+						cityResult3.value = _getParam(items[0], 'text') + " " + _getParam(items[1], 'text') + " " + _getParam(items[2], 'text');
+						//返回 false 可以阻止选择框的关闭
+						//return false;
+					});
+				}, false);
+				
+			});
+		})(mui, document);
+		
+		var goBack = document.getElementById('goBack');
+		
+		goBack.addEventListener('tap',function(){
+			mui.openWindow({
+			    id:'adress.html',
+			    url:'adress.html'        
+			  });
+		})
+	</script>
+</html>

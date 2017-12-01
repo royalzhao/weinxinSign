@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-module
   type="WEB"
-  name="crm"
-  id="myeclipse.1511399193502"
-  context-root="/crm"
+  name="MweinxinSign"
+  id="myeclipse.1511927234108"
+  context-root="/MweinxinSign"
   j2ee-spec="5.0"
-  archive="crm.war">
+  archive="MweinxinSign.war">
   <attributes>
     <attribute name="webrootdir" value="WebRoot" />
   </attributes>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-module
   type="WEB"
-  name="MweinxinSign"
+  name="shop"
   id="myeclipse.1511927234108"
-  context-root="/MweinxinSign"
+  context-root="/signShop"
   j2ee-spec="5.0"
-  archive="MweinxinSign.war">
+  archive="shop.war">
   <attributes>
-    <attribute name="webrootdir" value="WebRoot" />
+    <attribute name="webrootdir" value="/WebRoot" />
   </attributes>
 </project-module>
 

@@ -21,34 +21,6 @@ import net.sf.json.JSONObject;
 
 public class HttpsGetUtil {
 	private static Logger log=Logger.getLogger(HttpsGetUtil.class);
-	public static String doHttpsGetJson(String Url) {
-		String message = "";
-		try {
-			System.out.println("doHttpsGetJson");// TODO:dd
-			URL urlGet = new URL(Url);
-			HttpURLConnection http = (HttpURLConnection) urlGet
-					.openConnection();
-			http.setRequestMethod("GET"); // ������get��ʽ���� 24
-			http.setRequestProperty("Content-Type",
-					"application/x-www-form-urlencoded");
-			http.setDoOutput(true);
-			http.setDoInput(true);
-			System.setProperty("sun.net.client.defaultConnectTimeout", "30000");// ���ӳ�ʱ30��28
-			System.setProperty("sun.net.client.defaultReadTimeout", "30000"); // ��ȡ��ʱ30��29
-																				// 30
-			http.connect();
-			InputStream is = http.getInputStream();
-			int size = is.available();
-			byte[] jsonBytes = new byte[size];
-			is.read(jsonBytes);
-			message = new String(jsonBytes, "UTF-8");
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return message;
-	}
 	public static JSONObject httpRequest(String requestUrl, String requestMethod, String outputStr) {  
         JSONObject jsonObject = null;  
         StringBuffer buffer = new StringBuffer();  
@@ -104,4 +76,5 @@ public class HttpsGetUtil {
         }  
         return jsonObject;  
     }  
+	
 }

@@ -28,7 +28,8 @@ public class WeixinUserInfo {
     private String sign_in_integration;
     //签到时间
     private String s_date;
-    
+    //积分排名
+    private String rownum;
 	
 	public WeixinUserInfo() {
 		super();
@@ -36,16 +37,14 @@ public class WeixinUserInfo {
 	}
 	public WeixinUserInfo(String openid, String nickname, String sex,
 			String province, String city, String country,
-			String headimgurl, String privilege, String unionid) {
+			String headimgurl) {
 		this.openid=openid;
 		this.city=city;
 		this.country=country;
 		this.headimgurl=headimgurl;
 		this.nickname=nickname;
-		this.privilege=privilege;
 		this.province=province;
 		this.sex=sex;
-		this.unionid=unionid;
 	}
 	public String getSign_in_integration() {
 		return sign_in_integration;
@@ -97,17 +96,6 @@ public class WeixinUserInfo {
 	}
 	
 	
-	@Override
-	public String toString() {
-		return "WeixinUserInfo [city=" + city + ", country=" + country
-				+ ", headimgurl=" + headimgurl + ", language=" + language
-				+ ", nickname=" + nickname + ", openid=" + openid
-				+ ", privilege=" + privilege + ", province=" + province
-				+ ", s_date=" + s_date + ", sex=" + sex
-				+ ", sign_in_integration=" + sign_in_integration
-				+ ", subscribe=" + subscribe + ", subscribeTime="
-				+ subscribeTime + ", unionid=" + unionid + "]";
-	}
 	public String getProvince() {
 		return province;
 	}
@@ -143,6 +131,23 @@ public class WeixinUserInfo {
 	}
 	public void setUnionid(String unionid) {
 		this.unionid = unionid;
+	}
+	public String getRownum() {
+		return rownum;
+	}
+	public void setRownum(String rownum) {
+		this.rownum = rownum;
+	}
+	@Override
+	public String toString() {
+		return "WeixinUserInfo [city=" + city + ", country=" + country
+				+ ", headimgurl=" + headimgurl + ", language=" + language
+				+ ", nickname=" + nickname + ", openid=" + openid
+				+ ", privilege=" + privilege + ", province=" + province
+				+ ", rownum=" + rownum + ", s_date=" + s_date + ", sex=" + sex
+				+ ", sign_in_integration=" + sign_in_integration
+				+ ", subscribe=" + subscribe + ", subscribeTime="
+				+ subscribeTime + ", unionid=" + unionid + "]";
 	}
 	
     

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<script type="text/javascript">
+			//location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxe0f9974fb42fff1a&redirect_uri=https://www.ackao.cn/weixinSign/sign.html&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
+		</script>
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/app.css"/>
+		<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_483809_vy8u1m2ivs1nhfr.css"/>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">兑换商城</h1>
+		</header>
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item" href="index.html" id="goIndex">
+				<span class="mui-icon iconfont icon-shouye"></span>
+				<span class="mui-tab-label">首页</span>
+			</a>
+			<a class="mui-tab-item" href="shop.html" id="goShop">
+				<span class="mui-icon iconfont icon-shangcheng"></span>
+				<span class="mui-tab-label">商城</span>
+			</a>
+			<a class="mui-tab-item mui-active" href="me.html" id="goMe">
+				<span class="mui-icon iconfont icon-wode"></span>
+				<span class="mui-tab-label">我</span>
+			</a>
+		</nav>
+		<div class="mui-content mui-me">
+			
+			
+				<div class="myHead">
+					<div class="myFace">
+						<img src="img/face9.jpg" alt="头像" />
+					</div>
+					<p class="myName">欧阳夏花</p>
+				</div>
+				<ul class="mui-table-view">
+				    <li class="mui-table-view-cell">
+				        <a id="goList" class="mui-navigate-right"><i class="iconfont icon-dingdan"></i> 我的订单</a>
+				    </li>
+				    <li class="mui-table-view-cell">
+				        <a id="goPaidou" href="paidou.html" class="mui-navigate-right"><i class="iconfont icon-dou"></i> 我的派豆</a>
+				    </li>
+				    <li class="mui-table-view-cell">
+				        <a id="goAdress" class="mui-navigate-right"><i class="iconfont icon-dizhi"></i> 常用地址</a>
+				    </li>
+				    <li class="mui-table-view-cell">
+				        <a id="goPhone" class="mui-navigate-right"><i class="iconfont icon-icon_lianxi"></i> 联系我们</a>
+				    </li>
+				</ul>
+				
+				
+			
+		</div>
+	</body>
+	<script src="../js/mui.min.js"></script>
+	<script>
+		mui.init({
+			swipeBack:true //启用右滑关闭功能
+		});
+		
+		
+		var goIndex = document.getElementById('goIndex');
+		var goShop = document.getElementById('goShop');
+		var goMe = document.getElementById('goMe');
+		
+		goIndex.addEventListener('tap',function(){
+			mui.openWindow({
+			    id:'index.html',
+			    url:'index.html'        
+			  });
+		})
+		goShop.addEventListener('tap',function(){
+			mui.openWindow({
+			    id:'shop.html',
+			    url:'shop.html'        
+			  });
+		})
+		goMe.addEventListener('tap',function(){
+			mui.openWindow({
+			    id:'me.html',
+			    url:'me.html'        
+			  });
+		})
+		
+		var goList = document.getElementById('goList');
+		var goPaidou = document.getElementById('goPaidou');
+		var goAdress = document.getElementById('goAdress');
+		var goPhone = document.getElementById('goPhone');
+		
+		goList.addEventListener('tap',function(){
+			mui.openWindow({
+			    id:'list.html',
+			    url:'list.html'        
+			  });
+		})
+		goPaidou.addEventListener('tap',function(){
+			mui.openWindow({
+			    id:'paidou.html',
+			    url:'paidou.html'        
+			  });
+		})
+		goAdress.addEventListener('tap',function(){
+			mui.openWindow({
+			    id:'adress.html',
+			    url:'adress.html'        
+			  });
+		})
+		goIndex.addEventListener('tap',function(){
+			mui.openWindow({
+			    id:'contact.html',
+			    url:'contact.html'        
+			  });
+		})
+		
+		
+	</script>
+</html>

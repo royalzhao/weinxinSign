@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ytzh.mapper.PlaceOrderMapper">
+	<insert id="saveOrder" parameterType="orders">
+		INSERT INTO yt.c_orders (order_num, g_id, g_num, exchange_integration, state, o_date, address, 
+	consignee, consignee_tele, full_address, zip_code, tracking_num, openid)VALUES
+	(#{order_num}, #{g_id}, #{g_num}, #{exchange_integration}, #{state}, #{o_date}, #{address}, #{consignee}, #{consignee_tele}, 
+	#{full_address}, #{zip_code}, #{tracking_num}, #{openid})
+	</insert>
+</mapper>

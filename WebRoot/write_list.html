@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>我的订单</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/app.css"/>
+		<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_483809_vy8u1m2ivs1nhfr.css"/>
+		
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a id="goBack" href="index.html.mui-me" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">填写订单</h1>
+		</header>
+		<div class="mui-content">
+			<ul class="mui-table-view">
+			    <li class="mui-table-view-cell mui-media">
+			        <a href="javascript:;" class="mui-navigate-right" id="select_address">
+			            <span class="mui-media-object mui-pull-left"> <i class="mui-icon mui-icon-location"></i></span>
+			            <div class="mui-media-body">
+			                <span id="user">赵帅</span>            
+			                <span id="phone">17611580721</span> <span class="mui-badge mui-badge-danger">默认</span>
+			                <p class='mui-ellipsis' id="address">详细地址</p>
+			            </div>
+			        </a>
+			    </li>
+			</ul>
+			<div style="background: url(img/bg3.jpg);height: 3px;width: 100%;"></div>
+			<ul class="mui-table-view shop_message">
+			    <li class="mui-table-view-cell mui-media">
+			        <a href="javascript:;">
+			            <span class="mui-media-object mui-pull-left"> 
+			            	<img src="img/product1.jpg" alt="" style="width: 100%;" />
+			            </span>
+			            <div class="mui-media-body">
+			                <span>焖烧杯</span>
+			                <p class='mui-ellipsis'>
+			                	<i class="iconfont icon-dou"></i>2000
+			                	<span class="mui-pull-right">x1</span>
+			                </p>
+			                
+			            </div>
+			        </a>
+			    </li>
+			    <li class="mui-table-view-cell">
+			        <a class="mui-navigate-right">
+			        	支付配送
+			        	<span class="mui-pull-right">
+			        		派豆支付<br />
+			        		第三方快递
+			        	</span>
+			        </a>
+			    </li>
+			    
+			</ul>
+			<ul class="mui-table-view top">
+			    <li class="mui-table-view-cell">
+			    	派豆
+			    	<span class="mui-pull-right">
+			    		<i class="iconfont icon-dou"></i>20
+			    	</span>
+			    </li>
+			    
+			</ul>
+			<ul class="mui-table-view top">
+			    <li class="mui-table-view-cell">
+			    	商品金额
+			    	<span class="mui-pull-right">
+			    		<i class="iconfont icon-dou"></i>2000
+			    	</span>
+			    </li>
+			    <li class="mui-table-view-cell">
+			    	运费
+			    	<span class="mui-pull-right">
+			    		10
+			    	</span>
+			    </li>
+			    <li class="mui-table-view-cell">
+			    	派豆
+			    	<span class="mui-pull-right">
+			    		<i class="iconfont icon-dou"></i>-20
+			    	</span>
+			    </li>
+			</ul>
+			
+			<footer class="write_list_footer">
+				<div class="mui-row">
+					<div class="mui-col-sm-8 mui-col-xs-8 mui-col-md-8">
+						实付派豆：<i class="iconfont icon-dou"></i>2000
+					</div>
+					<div class="mui-col-sm-4 mui-col-xs-4 mui-col-md-4">
+						<span>提交订单</span>
+					</div>
+				</div>
+			</footer>
+			
+		</div>
+	
+	</body>
+	<script src="../js/mui.min.js"></script>
+	<script>
+		mui.init({
+			swipeBack:true //启用右滑关闭功能
+		});
+		
+		var goBack = document.getElementById('goBack');
+		
+		goBack.addEventListener('tap',function(){
+			mui.openWindow({
+			    id:'index.html.mui-me',
+			    url:'index.html.mui-me'        
+			  });
+		})
+		
+		var select_address = document.getElementById('select_address');
+		select_address.addEventListener('tap',function(){
+			mui.openWindow({
+			    id:'select_address.html',
+			    url:'select_address.html'        
+			  });
+		})
+		
+		var userAdress = JSON.parse(localStorage.getItem('userAdress'));
+		
+		var user = document.getElementById('user');
+		var address = document.getElementById('address');
+		var phone = document.getElementById('phone');
+		if(userAdress != null){
+//			console.log(1)
+//			console.log(user.innerHTML)
+			user.innerText = userAdress.user;
+			address.innerText = userAdress.address;
+			phone.innerText = userAdress.phone;
+		}
+		
+	</script>
+</html>

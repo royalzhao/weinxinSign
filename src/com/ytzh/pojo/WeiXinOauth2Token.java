@@ -1,14 +1,12 @@
 package com.ytzh.pojo;
 
 public class WeiXinOauth2Token {
+
 	private String access_token;
 	private String expires_in;
 	private String refresh_token;
 	private String openid;
 	private String scope;
-	private String errcode;
-	private String errmsg;
-	
 	
 	public WeiXinOauth2Token() {
 		super();
@@ -56,24 +54,13 @@ public class WeiXinOauth2Token {
 		this.scope = scope;
 	}
 	
-	public String getErrcode() {
-		return errcode;
-	}
-	public void setErrcode(String errcode) {
-		this.errcode = errcode;
-	}
-	public String getErrmsg() {
-		return errmsg;
-	}
-	public void setErrmsg(String errmsg) {
-		this.errmsg = errmsg;
-	}
+
 	@Override
 	public String toString() {
-		return "WeiXinOauth2Token [access_token=" + access_token + ", errcode="
-				+ errcode + ", errmsg=" + errmsg + ", expires_in=" + expires_in
-				+ ", openid=" + openid + ", refresh_token=" + refresh_token
-				+ ", scope=" + scope + "]";
+		return "WeiXinOauth2Token [access_token=" + access_token 
+				+  ", expires_in=" + expires_in + ", openid=" + openid
+				+ ", refresh_token=" + refresh_token + ", scope=" + scope + "]";
 	}
+	
 	
 }

@@ -10,13 +10,13 @@
 		http://www.springframework.org/schema/tx
 		http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
-	<!-- 1. 数据源 : DriverManagerDataSource -->
+	<!-- 1. 数据源 : DriverManagerDataSource  &amp;useSSL=false-->
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/yt?useUnicode=true&amp;characterEncoding=UTF-8" />
-		<property name="username" value="root" />
-		<property name="password" value="root" />
+		<property name="url" value="jdbc:mysql://localhost:3306/yt?useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=false" />
+		<property name="username" value="ytzh" />
+		<property name="password" value="ytzh" />
 	</bean>
 
 	<!--

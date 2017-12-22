@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<script type="text/javascript">
+			//location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxe0f9974fb42fff1a&redirect_uri=https://www.ackao.cn/weixinSign/sign.html&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
+		</script>
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/app.css"/>
+		<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_483809_vy8u1m2ivs1nhfr.css"/>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">兑换商城</h1>
+		</header>
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item" href="index.html" id="goIndex">
+				<span class="mui-icon iconfont icon-shouye"></span>
+				<span class="mui-tab-label">首页</span>
+			</a>
+			<a class="mui-tab-item mui-active" href="shop.html" id="goShop">
+				<span class="mui-icon iconfont icon-shangcheng"></span>
+				<span class="mui-tab-label">商城</span>
+			</a>
+			<a class="mui-tab-item " href="me.html" id="goMe">
+				<span class="mui-icon iconfont icon-wode"></span>
+				<span class="mui-tab-label">我</span>
+			</a>
+		</nav>
+		<div class="mui-content">
+			
+			<div class="mui-content">
+			    <div class="mui-row">
+			        <div class="mui-col-sm-6 mui-col-xs-12">
+			            <div class="mui-card">
+							<div class="mui-card-header mui-card-media" style="height:40vw;background-image:url(img/product1.jpg)"></div>
+							<div class="mui-card-content">
+								<div class="mui-card-content-inner">
+									<p style="color: #333;">闷烧杯</p>
+								</div>
+							</div>
+							<div class="mui-card-footer">
+								<span class="mui-card-link"><span class="price">50</span><i class="iconfont icon-dou"></i></span>
+								<a class="mui-card-link">立即兑换</a>
+							</div>
+						</div>
+			        </div>
+			        <div class="mui-col-sm-6 mui-col-xs-12">
+			            <div class="mui-card">
+							<div class="mui-card-header mui-card-media" style="height:40vw;background-image:url(img/product2.jpg)"></div>
+							<div class="mui-card-content">
+								<div class="mui-card-content-inner">
+									<p style="color: #333;">四叶草纯银手镯</p>
+								</div>
+							</div>
+							<div class="mui-card-footer">
+								<span class="mui-card-link"><span class="price">50</span><i class="iconfont icon-dou"></i></span>
+								<a class="mui-card-link">立即兑换</a>
+							</div>
+						</div>
+			        </div>
+			        <div class="mui-col-sm-6 mui-col-xs-12">
+			            <div class="mui-card">
+							<div class="mui-card-header mui-card-media" style="height:40vw;background-image:url(img/product3.jpg)"></div>
+							<div class="mui-card-content">
+								<div class="mui-card-content-inner">
+									<p style="color: #333;">海洋限量版洁面仪硅胶电动声波洁面仪</p>
+								</div>
+							</div>
+							<div class="mui-card-footer">
+								<span class="mui-card-link"><span class="price">50</span><i class="iconfont icon-dou"></i></span>
+								<a class="mui-card-link">立即兑换</a>
+							</div>
+						</div>
+			        </div>
+			    </div>
+				
+			</div>
+		</div>
+	</body>
+	<script src="../js/mui.min.js"></script>
+	<script>
+		mui.init({
+			swipeBack:true //启用右滑关闭功能
+		});
+		
+		
+		var goIndex = document.getElementById('goIndex');
+		var goShop = document.getElementById('goShop');
+		var goMe = document.getElementById('goMe');
+		
+		goIndex.addEventListener('tap',function(){
+			mui.openWindow({
+			    id:'index.html',
+			    url:'index.html'        
+			  });
+		})
+		goShop.addEventListener('tap',function(){
+			mui.openWindow({
+			    id:'shop.html',
+			    url:'shop.html'        
+			  });
+		})
+		goMe.addEventListener('tap',function(){
+			mui.openWindow({
+			    id:'me.html',
+			    url:'me.html'        
+			  });
+		})
+		
+
+	</script>
+</html>

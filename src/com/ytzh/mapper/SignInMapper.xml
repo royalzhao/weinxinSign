@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ytzh.mapper.SignInMapper">
+	<!-- 查询用户是否签到 -->
+	<select id="selectSign" parameterType="wUserInfo" resultType="Map">
+		SELECT 	COUNT(1) COUNT FROM yt.c_userinfo 
+		WHERE 1=1 AND UNIX_TIMESTAMP(DATE_FORMAT(s_date,'%Y-%m-%d'))=UNIX_TIMESTAMP(CURDATE()) AND openid=#{openid}
+	</select>
+	<!-- 签到 -->
+	<update id="doSignin" parameterType="wUserInfo">
+		UPDATE yt.c_userinfo SET sign_in_integration = sign_in_integration+3 , s_date = NOW(),state='0' 
+		WHERE 1=1 AND openid=#{openid}
+	</update>
+	<!-- 前十奖励 -->
+	<update id="integration_receive" parameterType="wUserInfo">
+		UPDATE yt.c_userinfo SET sign_in_integration = sign_in_integration+5 , state ='1' WHERE 1=1 AND openid=#{openid}
+	</update>
+	<!-- 首次签到 -->
+	<insert id="firstSign" parameterType="wUserInfo">
+		INSERT INTO yt.c_userinfo 
+			  (openid, v_name,headimgurl,v_grades, register_date, sex, state,   continuities, s_date, sign_in_integration)
+		VALUES(#{openid}, #{nickname},#{headimgurl},'0', CURDATE(), #{sex}, '0', 0, NOW(), 10)
+	</insert>
+	<!-- 添加签到记录 -->
+	<insert id="sign_record" parameterType="wUserInfo">
+		INSERT INTO yt.c_sign_in ( s_date, openid)VALUES ( NOW(), #{openid})
+	</insert>
+	
+	<!-- 签到页会员信息查询 -->
+	<select id="selectVip" resultType="vip" parameterType="wUserInfo">
+		SELECT sign_in_integration,state,rownum FROM (
+			SELECT (@rownum:=@rownum+1) AS rownum, a.* FROM yt.c_userinfo a, (SELECT @rownum:= 0 ) r 
+	 			WHERE UNIX_TIMESTAMP(DATE_FORMAT(s_date,'%Y-%m-%d'))=UNIX_TIMESTAMP(CURDATE()) ORDER BY a.s_date 
+	 				) AS b WHERE openid =#{openid}
+	</select>
+	<!-- 查询签到记录 -->
+	<select id="signListByOid" resultType="Map" parameterType="wUserInfo">
+		SELECT DATE_FORMAT(s.s_date,'%e') s_date FROM yt.c_sign_in s WHERE s.openid=#{openid}
+	</select>
+	
+	<!--签到排名列表  -->
+	<select id="sign_order" resultType="Map">
+		SELECT b.v_name,b.headimgurl,b.rownum  FROM (
+			SELECT (@rownum:=@rownum+1) AS rownum, a.* FROM yt.c_userinfo a, (SELECT @rownum:= 0 ) r  
+			WHERE UNIX_TIMESTAMP(DATE_FORMAT(a.s_date,'%Y-%m-%d'))=UNIX_TIMESTAMP(CURDATE()) ORDER BY a.s_date 
+ 		) AS b 
+	</select>
+	
+	<!-- 当日签到人数 -->
+	<select id="signCount" resultType="Map">
+		SELECT COUNT(1) count FROM (
+			SELECT  a.* FROM yt.c_userinfo a
+			WHERE UNIX_TIMESTAMP(DATE_FORMAT(a.s_date,'%Y-%m-%d'))=UNIX_TIMESTAMP(CURDATE()) GROUP BY openid ORDER BY a.s_date
+ 		) AS b 
+	</select>
+</mapper>

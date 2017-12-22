@@ -33,6 +33,13 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 	-->
-	
-	
+	<!-- 自定义拦截器 
+	  
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/index.do"/>
+            <bean class="com.ytzh.interceptor.GetCodeInter"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+-->
 </beans>

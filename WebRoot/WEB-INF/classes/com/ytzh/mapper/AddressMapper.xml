@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ytzh.mapper.AddressMapper">
+	<delete id="deleteAddress" parameterType="address">
+		DELETE FROM yt.c_address WHERE address_id = #{address_id}
+	</delete>
+	<insert id="saveAddress" parameterType="address">
+		INSERT INTO yt.c_address (address_id, e_name, telephone, full_address, zip_code, e_address, openid)
+		VALUES(UUID(), #{e_name}, #{telephone}, #{full_address}, #{zip_code}, #{e_address}, #{openid})
+	</insert>
+	
+	<select id="selectAddress" resultType="address" parameterType="wUserInfo">
+		SELECT address.* FROM yt.c_userinfo userinfo RIGHT JOIN yt.c_address address ON address.openid=userinfo.openid
+		 WHERE userinfo.openid=#{openid}
+	</select>
+	<update id="updateAddress" parameterType="address">
+		UPDATE yt.c_address SET
+		e_name = #{e_name} , 
+		telephone = #{telephone} , 
+		full_address = #{full_address} , 
+		zip_code = #{zip_code} , 
+		e_address = #{e_address} 
+		WHERE
+		address_id = #{address_id}
+	</update>
+</mapper>

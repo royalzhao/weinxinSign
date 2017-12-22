@@ -1,0 +1,167 @@
+a{
+	color: #03BDB2;
+}
+.mui-bar-nav{
+	background: #03BDB2;
+}
+.mui-bar-nav h1{
+	color: #fff;
+	font-weight: bold;
+}
+.mui-bar-tab .mui-tab-item.mui-active{
+	color: #03BDB2;
+}
+.mui-table-view .media-active{
+	padding: 10px 15px;
+}
+.mui-table-view .media-active .mui-media-object{
+	max-width: 60px;
+	height: 60px;
+}
+.mui-table-view .media-active .mui-media-body{
+	line-height: 60px;
+}
+.mui-table-view .media-active .mui-media-body .mui-ellipsis{
+	line-height: 25px;
+}
+.mui-table-view .media-active .mui-media-body h4{
+	color: #000;
+}
+.mui-table-view .mui-media .mui-media-body{
+	color:#666;
+}
+.mui-control-content .mui-content .mui-card .mui-card-footer .mui-card-link i{
+	margin-left: 0.3rem;
+	color: #FACF26;
+}
+
+.mui-me .myHead{
+	width: 100%;
+	text-align: center;
+	background: #03BDB2;
+	padding: 3rem 0;
+}
+.mui-me .myHead .myFace{
+	width: 15%;
+	margin: 0 auto;
+}
+.mui-me .myHead .myFace img{
+	width: 100%;
+	border-radius: 50%;
+	
+}
+.mui-me .myHead .myName{
+	margin-top: 0.8rem;
+	color: #fff;
+}
+.icon-dingdan , .icon-dou , .icon-dizhi , .icon-icon_lianxi{
+	color: #03BDB2;
+	margin: 0 5px;
+}
+.mui-me .mui-table-view{
+	margin-top: 0.8rem;
+}
+
+/*我的订单页*/
+.mui-bar-nav.mui-bar .mui-icon{
+	color: #fff;
+}
+.noList{
+	text-align: center;
+	padding-top: 2rem;
+}
+.noList i{
+	font-size: 6rem;
+	color: #ccc;
+	padding: 1rem 0;
+}
+.noList p{
+	color: #ccc;
+}
+.mui-ellipsis i{
+	color: #03BDB2;
+}
+.mui-ellipsis .mui-btn-green{
+	float: right;
+	color: #03BDB2;
+	border-color:#03BDB2;
+}
+.mui-ellipsis .mui-btn-green:active{
+	background: #03BDB2;
+}
+/*我的派豆页*/
+.paidou .paidouNum{
+	font-size: 4rem;
+	margin: 5rem 0;
+	text-align: center;
+}
+.paidou .paidouNum i{
+	font-size: 4rem;	
+	color: #03BDB2;
+}
+.paidou a{
+	width: 90%;
+	margin: 1rem auto;
+	padding: 10px 0;
+}
+.paidou a:nth-of-type(1){
+	background-color: #F99F28;
+	border-color: #F99F28;
+}
+.paidou a:nth-of-type(2){
+	background-color: #01C4FD;
+	border-color: #01C4FD;
+}
+/*常用地址页*/
+.addAdress{
+	padding: 10px 0;
+	width: 90%;
+	margin: 1rem auto;
+	background: #03BDB2;
+	border-color: #03BDB2;
+}
+
+/*联系我们页面*/
+.mui-card .mui-input-group .mui-input-row:nth-of-type(2){
+	height: auto;
+}
+.mui-card .mui-input-group .mui-input-row:nth-of-type(2) textarea{
+	height: 5rem;
+}
+.mui-card .contact_footer{
+	text-align: center;
+}
+
+/*填写订单页面*/
+.shop_message{
+	margin-top: 15px;
+}
+.shop_message li:nth-of-type(2) a{
+	font-size: 1rem;
+	color: #666;
+}
+.shop_message li:nth-of-type(2) a span{
+	font-size: 0.9rem;;
+	margin-right: 20px;
+}
+.top{
+	margin-top: 15px;
+}
+.top:nth-last-of-type(1){
+	margin-bottom: 60px;
+}
+.write_list_footer{
+	position: fixed;
+	width:100%;
+	bottom: 0;
+}
+.write_list_footer .mui-row div:nth-of-type(1){
+	background: #FFFFFF;
+	padding: 15px 10px;
+}
+.write_list_footer .mui-row div:nth-of-type(2){
+	background: #DD524D;
+	padding: 15px 10px;
+	text-align: center;
+	color: #fff;
+}

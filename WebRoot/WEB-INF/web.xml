@@ -59,7 +59,9 @@
 		<url-pattern>*.do</url-pattern>
 	</filter-mapping>
 
-	<welcome-file-list>
-		<welcome-file>/index.jsp</welcome-file>
-	</welcome-file-list>
+	<!-- 设置session失效时间   时间单位为分钟--> 
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+ 
 </web-app>

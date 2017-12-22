@@ -5,15 +5,20 @@
 
 	<!-- 实体类,简称 -设置别名 -->
 	<typeAliases>
-		<typeAlias alias="wToken" type="com.ytzh.pojo.WeiXinOauth2Token" />
 		<typeAlias alias="wUserInfo" type="com.ytzh.pojo.WeixinUserInfo" />
+		<typeAlias alias="address" type="com.ytzh.pojo.Address" />
+		<typeAlias alias="orders" type="com.ytzh.pojo.Orders" />
+		<typeAlias alias="vip" type="com.ytzh.pojo.Vip" />
+		<typeAlias alias="good" type="com.ytzh.pojo.Goods" />
 	</typeAliases>
 	<!-- 实体接口映射资源 -->
 	<!--
 		说明：如果xxMapper.xml配置文件放在和xxMapper.java统一目录下，mappers也可以省略，因为org.mybatis.spring.mapper.MapperFactoryBean默认会去查找与xxMapper.java相同目录和名称的xxMapper.xml
 	-->
 	<mappers>
-		<mapper resource="com/ytzh/mapper/UserInFoMapper.xml" />
+		<mapper resource="com/ytzh/mapper/AddressMapper.xml"/>
+		<mapper resource="com/ytzh/mapper/PlaceOrderMapper.xml"/>
+		<mapper resource="com/ytzh/mapper/SignInMapper.xml"/>
+		<mapper resource="com/ytzh/mapper/GoodMapper.xml"/>
 	</mappers>
-
 </configuration>  

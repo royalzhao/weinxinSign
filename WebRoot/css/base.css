@@ -1,0 +1,322 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	font-family: "微软雅黑";
+	font-size: 16px;
+	font-size: 1rem;
+	/* 加载背景图 */
+	
+	background-image: url(../img/bg2.jpg);
+	
+	
+	background-position: center center;
+	
+	background-repeat: no-repeat;
+	
+	background-attachment: fixed;
+	
+	background-size: cover;
+	position: relative;
+}
+.container{
+	width: 100%;
+	/*background: #F76260;*/
+	margin: 0 auto;
+}
+.weui-icon-success{
+	color: #519c4a;
+}
+.head{
+	width: 8rem;
+	height: 8rem;
+	border-radius: 50%;
+	margin: 0 auto;
+	background: #fff;
+	margin-top: 1rem;
+	text-align: center;
+	line-height: 35px;
+	z-index: 2;
+	position: relative;
+}
+.head .success-icon i{
+	font-size: 3rem;
+	margin-top: 1.5rem;
+}
+.head h3{
+	color: #519c4a;
+}
+.caidai{
+	text-align: center;
+	z-index: 1;
+	position: relative;
+}
+.caidai img{
+	width: 80%;
+	margin-top: -2rem;
+	
+}
+.box{
+	width: 90%;
+	margin: 0 auto;
+	background: #F8F7BF;
+	padding: 10px;
+	box-sizing: border-box;
+	border:2px solid #493129;
+	border-radius: 5px;
+	margin-top: -3rem;
+}
+/*展示签到经验值按钮*/
+.box  .xian{
+	width: 6rem;
+	margin: 0rem auto;
+	border-left: 1px dashed #8E6B34;
+	border-right: 1px dashed #8E6B34;
+	height: 1rem;
+}
+.box  .show{
+	width: 8rem;
+	background: #E64340;
+	text-align: center;
+	border-radius: 10px;
+	font-size: .8rem;
+	color: #fff;
+	margin: 0rem auto;
+	margin-bottom: 1rem;
+	padding-top: 0.1rem;
+	padding-bottom: 0.2rem;
+}
+.box .table-head{
+	display: flex;
+	justify-content: space-between;
+	padding-left: 0.6rem;
+	padding-right: 0.6rem;
+	margin-bottom: 0.6rem;
+}
+.box .table-head .today{
+	color: #4A3A26;
+	font-weight: bold;
+	font-size: 0.8rem;
+	display: flex;
+}
+.box .table-head .my-jinyan{
+	font-size: 0.8rem;
+	color: red;
+	font-weight: bold;
+}
+
+
+/*签到日历*/
+.box table{
+	border: 1px solid #ccc;
+	border-left: 0;
+	width: 95%;
+	margin: 0 auto;
+	text-align: center;
+	border-bottom: 0;
+}
+.box table tr td{
+	border-left: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	height: 3rem;
+	color: #A64836;
+	font-weight: bold;
+	font-size: 1.2rem;
+}
+.box table tr{
+	vertical-align: top;
+}
+.box table tr:nth-of-type(5){
+	vertical-align: middle;
+}
+.box table tr:nth-of-type(5) td{
+	font-weight: 100;
+	color: #8E6B34;
+	font-size: 0.8rem;
+}
+.box table tr:nth-of-type(5) td:nth-of-type(1) , .box table tr:nth-of-type(5) td:nth-last-of-type(1){
+	color: #F43530;
+}
+/*签到Top10*/
+.signTop{
+	width:90%;
+	margin: 0 auto;
+	margin-top: 1.5rem;
+}
+.signTop .signTop-head{
+	background: #F2A002;
+	color: #fff;
+	display: flex;
+	justify-content: space-between;
+	padding: 0.5rem 0.6rem;
+	border-radius: 5px 5px 0 0;
+}
+.signTop .signTop-head div:nth-of-type(1){
+	font-size: 0.9rem;
+}
+.signTop .signTop-head div:nth-of-type(2){
+	font-size: 0.7rem;
+	line-height: 1.4rem;
+}
+.signTop .signTop-head div:nth-of-type(2) #signNum, .signTop .signTop-head div:nth-of-type(2) #paiming{
+	color: gold;
+	margin: 0 0.3rem;
+}
+.signTop ul{
+	background: #F7F7F7;
+	border-radius: 0 0 5px 5px;
+}
+.signTop ul li {
+	list-style: none;
+	display: flex;
+	justify-content: space-between;
+
+}
+.signTop ul li.ul-head{
+	padding: 0 0.5rem;
+	border-bottom: 1px solid #ccc;
+	font-size: 0.9rem;
+	font-family: '黑体';
+	color: #666;
+	padding: 0.3rem 0.6rem;
+}
+.signTop ul li.ul-body{
+	padding: 0 0.6rem;
+	margin: 0.5rem 0;
+	font-size: 0.8rem;
+}
+.signTop ul li .userInfo{
+	display: flex;
+	justify-content: space-between;
+}
+.signTop ul li .userInfo .userFace{
+	width: 1.5rem;
+	margin-right: 0.3rem;
+}
+.signTop ul li .userInfo .userFace img{
+	width: 100%;
+	border-radius: 100%;
+}
+.panel{
+	width: 90%;
+	margin: 1.5rem auto;
+	background: #F8F8F8;
+	border-radius: 5px;
+}
+.panel .panel-head{
+	background: #F2A002;
+	color: #fff;
+	font-size: 0.9rem;
+	padding: 0.5rem 0.6rem;
+	border-radius: 5px 5px 0 0;
+}
+.panel .panel-body{
+	padding: 1rem;
+	color: #666;
+	font-size: 0.8rem;
+}
+.panel .panel-body p{
+	line-height: 1.8rem;
+}
+/*已签到模式*/
+
+
+
+.modal .bg{
+	position: absolute;
+	background: rgba(0,0,0,0.5);
+	width: 100%;
+	height: 100%;
+	top: -20px;
+	z-index: 1000;
+}
+.modal-success{
+	width: 80%;
+	margin: 0 auto;
+	text-align: center;
+	background: #EFEFEF;
+	padding: 2rem 0;
+	margin-top: -6rem;
+}
+.modal .modal-success{
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-left: -40%;
+	
+	z-index: 10001;
+	border-radius: 5px;
+}
+.modal .modal-success p{
+	margin: 1rem 0;
+}
+.modal .modal-success .queren{
+	width: 50%;
+	padding: 0.5rem;
+	border: 0;
+	background: #f86544;
+	color: #fff;
+	font-size: 1rem;
+	border-radius: 5px;
+}
+
+.modal-error{
+	width: 80%;
+	margin: 0 auto;
+	text-align: center;
+	background: #EFEFEF;
+	padding: 2rem 0;
+	margin-top: -6rem;
+}
+.modal .modal-error{
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-left: -40%;
+	
+	z-index: 10001;
+	border-radius: 5px;
+}
+.modal .modal-error p{
+	margin: 1rem 0;
+}
+.modal .modal-error .queren{
+	width: 50%;
+	padding: 0.5rem;
+	border: 0;
+	background: #f86544;
+	color: #fff;
+	font-size: 1rem;
+	border-radius: 5px;
+}
+
+.modal-no{
+	width: 80%;
+	margin: 0 auto;
+	text-align: center;
+	background: #EFEFEF;
+	padding: 2rem 0;
+	margin-top: -6rem;
+}
+.modal .modal-no{
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-left: -40%;
+	
+	z-index: 10001;
+	border-radius: 5px;
+}
+.modal .modal-no p{
+	margin: 1rem 0;
+}
+.modal .modal-no .queren{
+	width: 50%;
+	padding: 0.5rem;
+	border: 0;
+	background: #f86544;
+	color: #fff;
+	font-size: 1rem;
+	border-radius: 5px;
+}

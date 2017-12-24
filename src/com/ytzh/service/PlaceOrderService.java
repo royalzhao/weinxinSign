@@ -20,4 +20,6 @@ public interface PlaceOrderService {
 	public int pOrderReady(WeixinUserInfo weixinUserInfo, Goods good);
 	//积分余额查询
 	public Vip selectIntegration(WeixinUserInfo weixinUserInfo);
+	//确认收货
+	public int firmOrder(Orders order);
 }

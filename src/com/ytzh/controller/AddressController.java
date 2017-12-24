@@ -62,6 +62,7 @@ public class AddressController {
 			return "error";
 		}
 		List<Address> addresslist=addressService.selectAddress(weixinUserInfo);
+		System.out.println(addresslist);
 		return JSON.toJSONString(addresslist);
 	}
 	/***

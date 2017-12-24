@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -43,5 +44,14 @@ public class PersonController {
 		}
 		Vip vip=placeOrderService.selectIntegration(weixinUserInfo);
 		return JSON.toJSONString(vip);
+	}
+	/***确认收货*/
+	@RequestMapping(value="/firmOrder",method=RequestMethod.GET,produces="text/html;charset=UTF-8")
+	@ResponseBody
+	public String firmOrder(HttpServletRequest request,@ModelAttribute Orders order){
+		
+		int result =placeOrderService.firmOrder(order);
+		
+		return result+"";
 	}
 }

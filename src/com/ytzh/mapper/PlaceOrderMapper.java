@@ -16,6 +16,8 @@ public interface PlaceOrderMapper {
 	public Vip selectIntegration(WeixinUserInfo weixinUserInfo);
 	//查询订单
 	public List<Orders> selectOrder(WeixinUserInfo weixinUserInfo);
+	//确认收货
+	public int firmOrder(Orders order);
 	
 
 }

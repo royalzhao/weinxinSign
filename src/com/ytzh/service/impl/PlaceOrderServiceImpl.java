@@ -73,6 +73,13 @@ public class PlaceOrderServiceImpl implements PlaceOrderService {
 		return placeOrderMapper.selectIntegration(weixinUserInfo);
 	}
 
+	//确认收货
+	@Override
+	public int firmOrder(Orders order) {
+		
+		return placeOrderMapper.firmOrder(order);
+	}
+
 
 	
 

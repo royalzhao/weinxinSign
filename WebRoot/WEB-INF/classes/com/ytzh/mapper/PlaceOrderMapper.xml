@@ -6,7 +6,7 @@
 	<insert id="saveOrder" parameterType="orders">
 		INSERT INTO yt.c_orders (order_num, g_id, g_num, exchange_integration, state, o_date, address, 
 	consignee, consignee_tele, full_address, zip_code, tracking_num, openid)VALUES
-	(#{order_num}, #{g_id}, #{g_num}, #{exchange_integration}, #{state}, #{o_date}, #{address}, #{consignee}, #{consignee_tele}, 
+	(#{order_num}, #{g_id}, #{g_num}, #{exchange_integration}, '1', #{o_date}, #{address}, #{consignee}, #{consignee_tele}, 
 	#{full_address}, #{zip_code}, #{tracking_num}, #{openid})
 	</insert>
 	<!-- 结算 -->
@@ -22,4 +22,8 @@
 	<select id="selectOrder" parameterType="wUserInfo" resultType="Map">
 		SELECT o.* FROM yt.c_userinfo u  JOIN yt.c_orders o ON  o.openid=u.openid WHERE u.openid=#{openid}
 	</select>
+	<!-- 确认收货 -->
+	<update id="firmOrder" parameterType="orders">
+		UPDATE yt.c_orders SET state = '3' WHERE order_num =#{order_num}
+	</update>
 </mapper>

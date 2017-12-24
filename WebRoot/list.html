@@ -32,7 +32,7 @@
 			                	<h4>四叶草手环</h4>
 			                <p class="mui-ellipsis"> 
 			                	<i class="iconfont icon-dou"></i>30 
-			                	<button type="button" class="mui-btn mui-btn-green mui-btn-outlined">确认收货</button>
+			                	<button type="button" id="button1" class="mui-btn mui-btn-green mui-btn-outlined">确认收货</button>
 			                </p>
 			            </div>
 			        </a>
@@ -60,6 +60,35 @@
 			    id:'index.html#tabbar-with-map',
 			    url:'index.html#tabbar-with-map'        
 			  });
+		})
+		//获取订单
+		mui.ajax('selectOrder.do',{
+				type:'POST',//HTTP请求类型    
+				success:function(data){
+					console.log(data);
+				},
+				error:function(xhr,type,errorThrown){
+					//异常处理；
+					console.log(type);
+				}
+			});
+		//确认收货
+		var button1 = document.getElementById('button1');
+		
+		button1.addEventListener('tap',function(){
+			mui.ajax('selectOrder.do',{
+				type:'POST',//HTTP请求类型    
+				data:{
+					order_num:''   //*******订单编号
+				},
+				success:function(data){
+					console.log(data);
+				},
+				error:function(xhr,type,errorThrown){
+					//异常处理；
+					console.log(type);
+				}
+			});
 		})
 	</script>
 </html>

@@ -200,4 +200,20 @@ a{
 	font-size: 1.5rem;
 	text-align: center;
 }
-
+.list-num,.list-time{
+	font-size: 0.9rem;
+	color: #ccc;
+}
+.mui-btn-outlined.mui-btn-green, .mui-btn-outlined.mui-btn-positive, .mui-btn-outlined.mui-btn-success{
+	color: #03BDB2;
+}
+.mui-btn-green, .mui-btn-positive, .mui-btn-success{
+	border-color: #03BDB2;
+}
+.list_info_footer{
+	position: fixed;
+	width:100%;
+	bottom: 0;
+	background: #fff;
+	padding: 8px 5px;
+}

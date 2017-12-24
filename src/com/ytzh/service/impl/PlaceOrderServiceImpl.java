@@ -31,15 +31,21 @@ public class PlaceOrderServiceImpl implements PlaceOrderService {
 	public int creatOrder(Orders orders) {
 		String orderNum=OrderUtil.getOrderNum();
 		orders.setOrder_num(orderNum);
+		//下单
 		int result=placeOrderMapper.saveOrder(orders);
+		if(result==1){
+			
+			//结算
+			result=placeOrderMapper.settleAccounts(orders);
+		}
 		
 		return result;
 	}
 	//查询订单
 	@Override
-	public List<Orders> selectOrder() {
+	public List<Orders> selectOrder(WeixinUserInfo weixinUserInfo) {
 		// TODO Auto-generated method stub
-		return null;
+		return placeOrderMapper.selectOrder(weixinUserInfo);
 	}
 
 	//下单验证
@@ -66,5 +72,8 @@ public class PlaceOrderServiceImpl implements PlaceOrderService {
 		
 		return placeOrderMapper.selectIntegration(weixinUserInfo);
 	}
+
+
+	
 
 }

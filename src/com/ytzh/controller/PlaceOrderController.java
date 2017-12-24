@@ -48,7 +48,8 @@ public class PlaceOrderController {
 		if(weixinUserInfo==null){
 			return "error";
 		}
+		orders.setOpenid(weixinUserInfo.getOpenid());
 		int result=placeOrderService.creatOrder(orders);	
-		return "";
+		return result+"";
 	}
 }

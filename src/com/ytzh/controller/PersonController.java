@@ -1,5 +1,7 @@
 package com.ytzh.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
+import com.ytzh.pojo.Orders;
 import com.ytzh.pojo.Vip;
 import com.ytzh.pojo.WeixinUserInfo;
 import com.ytzh.service.PlaceOrderService;
@@ -27,7 +30,8 @@ public class PersonController {
 		if(weixinUserInfo==null){
 			return "error";
 		}
-		return "success";
+		List<Orders> myOrders=placeOrderService.selectOrder(weixinUserInfo);
+		return JSON.toJSONString(myOrders);
 	}
 	/**积分余额查询*/
 	@RequestMapping(value="/selectIntegration",method=RequestMethod.GET,produces="text/html;charset=UTF-8")

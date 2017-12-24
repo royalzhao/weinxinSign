@@ -13,9 +13,9 @@ public interface PlaceOrderService {
 	 * 下单*/
 	public int creatOrder(Orders orders);
 	 /**
-	  * 订单查询*/
-	 
-	public List<Orders> selectOrder();
+	  * 订单查询
+	 * @param weixinUserInfo */
+	public List<Orders> selectOrder(WeixinUserInfo weixinUserInfo);
 	//下单验证
 	public int pOrderReady(WeixinUserInfo weixinUserInfo, Goods good);
 	//积分余额查询

@@ -2,14 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ytzh.mapper.PlaceOrderMapper">
+	<!-- 生成订单 -->
 	<insert id="saveOrder" parameterType="orders">
 		INSERT INTO yt.c_orders (order_num, g_id, g_num, exchange_integration, state, o_date, address, 
 	consignee, consignee_tele, full_address, zip_code, tracking_num, openid)VALUES
 	(#{order_num}, #{g_id}, #{g_num}, #{exchange_integration}, #{state}, #{o_date}, #{address}, #{consignee}, #{consignee_tele}, 
 	#{full_address}, #{zip_code}, #{tracking_num}, #{openid})
 	</insert>
+	<!-- 结算 -->
+	<update id="settleAccounts" parameterType="orders">
+		UPDATE yt.c_userinfo u 
+		SET sign_in_integration =sign_in_integration-#{exchange_integration} WHERE u.openid=#{openid}
+	</update>
 	<!-- 查询用户签到积分 -->
 	<select id="selectIntegration" parameterType="wUserInfo" resultType="vip">
 		SELECT 	sign_in_integration FROM yt.c_userinfo  WHERE 1=1 AND openid=#{openid}
+	</select>
+	<!-- 查询订单 -->
+	<select id="selectOrder" parameterType="wUserInfo" resultType="Map">
+		SELECT o.* FROM yt.c_userinfo u  JOIN yt.c_orders o ON  o.openid=u.openid WHERE u.openid=#{openid}
 	</select>
 </mapper>

@@ -46,5 +46,10 @@ public class AddressServiceImpl implements AddressService{
 		// TODO Auto-generated method stub
 		return addressMapper.updateAddress(address);
 	}
+	//查询地址ById
+	@Override
+	public Address selectAddressById(Address address) {	
+		return addressMapper.selectAddressById(address);
+	}
 
 }

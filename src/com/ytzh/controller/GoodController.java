@@ -28,7 +28,7 @@ public class GoodController {
 		return JSON.toJSONString(goodsList);
 	}
 	/**商品详情*/
-	@RequestMapping(value="/goodById",method=RequestMethod.GET,produces="text/html;charset=UTF-8")
+	@RequestMapping(value="/goodById",method=RequestMethod.POST,produces="text/html;charset=UTF-8")
 	@ResponseBody
 	public String goodById(@ModelAttribute Goods good){
 		return JSON.toJSONString("");

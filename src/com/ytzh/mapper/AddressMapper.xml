@@ -24,4 +24,8 @@
 		WHERE
 		address_id = #{address_id}
 	</update>
+	
+	<select id="selectAddressById" parameterType="address" resultType="address">
+		SELECT * FROM yt.c_address WHERE address_id=#{address_id}
+	</select>
 </mapper>

@@ -8,4 +8,8 @@
 	(#{order_num}, #{g_id}, #{g_num}, #{exchange_integration}, #{state}, #{o_date}, #{address}, #{consignee}, #{consignee_tele}, 
 	#{full_address}, #{zip_code}, #{tracking_num}, #{openid})
 	</insert>
+	<!-- 查询用户签到积分 -->
+	<select id="selectIntegration" parameterType="wUserInfo" resultType="vip">
+		SELECT 	sign_in_integration FROM yt.c_userinfo  WHERE 1=1 AND openid=#{openid}
+	</select>
 </mapper>

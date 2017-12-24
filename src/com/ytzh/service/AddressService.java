@@ -19,4 +19,6 @@ public interface AddressService {
 	/**
 	 * 删除收货地址*/
 	public int deleteAddress(Address address);
+	//查询地址信息ByID
+	public Address selectAddressById(Address address);
 }

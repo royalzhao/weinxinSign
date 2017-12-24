@@ -15,5 +15,7 @@ public interface AddressMapper {
 	public List<Address> selectAddress(WeixinUserInfo openid);
 
 	public int updateAddress(Address address);
+	//查询地址ById
+	public Address selectAddressById(Address address);
 
 }

@@ -36,7 +36,7 @@ public class AddressController {
 		return result+"";
 	}
 	/**地址修改*/
-	@RequestMapping(value="/updateAddress",method=RequestMethod.GET,produces="text/html;charset=UTF-8")
+	@RequestMapping(value="/updateAddress",method=RequestMethod.POST,produces="text/html;charset=UTF-8")
 	@ResponseBody
 	public String updateAddress(@ModelAttribute Address address){
 		int result=0;
@@ -45,7 +45,7 @@ public class AddressController {
 		return result+"";
 	}
 	/**地址注销*/
-	@RequestMapping(value="/deleteAddress",method=RequestMethod.GET,produces="text/html;charset=UTF-8")
+	@RequestMapping(value="/deleteAddress",method=RequestMethod.POST,produces="text/html;charset=UTF-8")
 	@ResponseBody
 	public String deleteAddress(@ModelAttribute Address address){
 		int result=0;
@@ -63,5 +63,14 @@ public class AddressController {
 		}
 		List<Address> addresslist=addressService.selectAddress(weixinUserInfo);
 		return JSON.toJSONString(addresslist);
+	}
+	/***
+	 * 地址查询ByID*/
+	@RequestMapping(value="/selectAddressById",method=RequestMethod.POST,produces="text/html;charset=UTF-8")
+	@ResponseBody
+	public String selectAddressById(@ModelAttribute Address address){
+		
+		address=addressService.selectAddressById(address);
+		return JSON.toJSONString(address);
 	}
 }

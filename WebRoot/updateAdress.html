@@ -23,20 +23,20 @@
 			<form class="mui-input-group">
 			    <div class="mui-input-row">
 			        <label>姓名</label>
-			        <input type="text" id="e_name" class="mui-input-clear" placeholder="请输入联系人姓名">
+			        <input type="text" class="mui-input-clear" placeholder="请输入联系人姓名">
 			    </div>
 			    <div class="mui-input-row">
 			        <label>手机</label>
-			        <input type="text" id="telephone" class="mui-input-clear" placeholder="请输入手机号码">
+			        <input type="text" class="mui-input-clear" placeholder="请输入手机号码">
 			    </div>
 			    <div class="mui-input-row">
 			        <label>省市县</label>
-			        <input type="text" id="showCityPicker3" class="mui-input-clear"  readonly="">
+			        <input type="text" id="showCityPicker3" class="mui-input-clear" value="请选择" readonly="">
 			    </div>
 			    
 			    <div class="mui-input-row">
 			        <label>详细地址</label>
-			        <input type="text" id="showUserPicker" class="mui-input-clear"  >
+			        <input type="text" id="showUserPicker" class="mui-input-clear" value="" readonly="">
 			    </div>
 			    <div class="mui-input-row">
 			        <label>是否默认</label>
@@ -47,7 +47,7 @@
 			    </div>
 			    
 			</form>
-			<button type="button" id="button1" class="mui-btn mui-btn-success mui-btn-block addAdress">保存</button>
+			<button type="button" class="mui-btn mui-btn-success mui-btn-block addAdress">保存</button>
 		</div>
 		
 		
@@ -95,30 +95,23 @@
 			    url:'adress.html'        
 			  });
 		})
-		var e_address=document.getElementById("showCityPicker3");
-		var full_address=document.getElementById("showUserPicker");
-		var telephone=document.getElementById("telephone");
-		var e_name=document.getElementById("e_name");
 		
-		var button1 = document.getElementById('button1');
-		button1.addEventListener('tap',function(){
-			mui.ajax('saveAddress.do',{
-				data:{
-					e_address:e_address.value,
-					full_address:full_address.value,
-					telephone:telephone.value,
-					e_name:e_name.value
-				},
-				type:'POST',//HTTP请求类型    
-				success:function(data){
-					console.log(data);
-				},
-				error:function(xhr,type,errorThrown){
-					//异常处理；
-					console.log(type);
-				}
-			});
-		})
-		
+		mui.ajax('saveAddress.do',{
+			data:{
+				e_address:'1',
+				full_address:'2',
+				telephone:'3',
+				e_name:'4'
+			},
+			type:'POST',//HTTP请求类型    
+			success:function(data){
+				console.log(1);
+				console.log(data);
+			},
+			error:function(xhr,type,errorThrown){
+				//异常处理；
+				console.log(type);
+			}
+		});
 	</script>
 </html>

@@ -34,17 +34,23 @@ public class WeiXinController {
 	@RequestMapping(value="/index",method=RequestMethod.GET,produces="text/html;charset=UTF-8")
 	public String toIndex(HttpServletRequest req){
 		//第二步 获取accesstekon及openid
-		WeiXinOauth2Token weiXinOauth2Token=null;
-		String code=req.getParameter("code");
-		if(code!=null||!code.equals("")){
-			//获取accesstekon及openid
-	  	    weiXinOauth2Token=WeiXinUtil.getAccessToken(code);
-	  	    //拉取用户信息
-	  	    WeixinUserInfo weixinUserInfo =  WeiXinUtil.getUserInFo(weiXinOauth2Token);
-	  	    System.out.println(weixinUserInfo+">>>>>>>>>>>>>>>>>>>>>weixinUserInfo");
-	  	    HttpSession session= req.getSession();
-	  	    session.setAttribute("weixinUserInfo", weixinUserInfo);
-		} 	
+//		WeiXinOauth2Token weiXinOauth2Token=null;
+//		String code=req.getParameter("code");
+//		if(code!=null||!code.equals("")){
+//			//获取accesstekon及openid
+//	  	    weiXinOauth2Token=WeiXinUtil.getAccessToken(code);
+//	  	    //拉取用户信息
+//	  	    WeixinUserInfo weixinUserInfo =  WeiXinUtil.getUserInFo(weiXinOauth2Token);
+//	  	    System.out.println(weixinUserInfo+">>>>>>>>>>>>>>>>>>>>>weixinUserInfo");
+//	  	    HttpSession session= req.getSession();
+//	  	    session.setAttribute("weixinUserInfo", weixinUserInfo);
+//		} 	
+		 WeixinUserInfo weixinUserInfo=new WeixinUserInfo();
+		 weixinUserInfo.setNickname("ssss");
+		 weixinUserInfo.setOpenid("a");
+		 HttpSession session= req.getSession();
+		 session.setAttribute("weixinUserInfo", weixinUserInfo);
+		 System.out.println(weixinUserInfo);
 		return "/index.html";
 	}
 }

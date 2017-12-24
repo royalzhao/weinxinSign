@@ -25,13 +25,13 @@ public class AddressController {
 	/**地址新增*/
 	@RequestMapping(value="/saveAddress",method=RequestMethod.POST,produces="text/html;charset=UTF-8")
 	@ResponseBody
-	public String addAddress(HttpServletRequest request,@ModelAttribute Address address){
+	public String addAddress(HttpServletRequest request,@ModelAttribute("address") Address address){
 		int result=0;
 		WeixinUserInfo weixinUserInfo=(WeixinUserInfo) request.getSession().getAttribute("weixinUserInfo");
 		if(weixinUserInfo==null){
 			return "error";
 		}
-		System.out.println(address);
+		address.setOpenid(weixinUserInfo.getOpenid());
 		result=addressService.saveAddress(address);
 		return result+"";
 	}

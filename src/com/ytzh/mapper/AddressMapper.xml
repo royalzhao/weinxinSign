@@ -6,8 +6,8 @@
 		DELETE FROM yt.c_address WHERE address_id = #{address_id}
 	</delete>
 	<insert id="saveAddress" parameterType="address">
-		INSERT INTO yt.c_address (address_id, e_name, telephone, full_address, zip_code, e_address, openid)
-		VALUES(UUID(), #{e_name}, #{telephone}, #{full_address}, #{zip_code}, #{e_address}, #{openid})
+		INSERT INTO yt.c_address (address_id, e_name, telephone, full_address, zip_code, e_address, openid,state)
+		VALUES(UUID(), #{e_name}, #{telephone}, #{full_address}, #{zip_code}, #{e_address}, #{openid},'0')
 	</insert>
 	
 	<select id="selectAddress" resultType="address" parameterType="wUserInfo">

@@ -53,6 +53,17 @@
 			    url:'addAdress.html'        
 			  });
 		})
-		
+		mui.ajax('selectAddress.do',{
+			type:'get',//HTTP请求类型
+			timeout:10000,//超时时间设置为10秒；
+			headers:{'Content-Type':'application/json'},	              
+			success:function(data){
+				console.log(data);
+			},
+			error:function(xhr,type,errorThrown){
+				//异常处理；
+				console.log(type);
+			}
+	});
 	</script>
 </html>

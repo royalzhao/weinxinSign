@@ -217,3 +217,10 @@ a{
 	background: #fff;
 	padding: 8px 5px;
 }
+.mui-checkbox input[type=checkbox]:checked:before, .mui-radio input[type=radio]:checked:before{
+	color: #03BDB2;
+}
+.mui-input-row label{
+	font-size: 14px;
+	color: #666;
+}

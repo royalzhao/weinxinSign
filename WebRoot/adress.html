@@ -8,7 +8,6 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
 		<link rel="stylesheet" type="text/css" href="css/app.css"/>
-		<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
 		<link rel="stylesheet" type="text/css" href="css/index.css"/>
 		<link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_483809_vy8u1m2ivs1nhfr.css"/>
 	</head>
@@ -22,14 +21,37 @@
 				
 			    <li class="mui-table-view-cell mui-media">
 			        <a href="javascript:;">
+			        	<div class="mui-input-row mui-radio mui-pull-right">
+		                    <label>默认</label>
+		                    <input name="radio" type="radio" class="defalut" onclick="getVals()" checked>
+		                </div>
 			            <div class="mui-media-body">
-			                                   赵帅（默认）
+			                <span class="id">1</span>
+			                赵帅
 			                <p class='mui-ellipsis'>北京市朝阳区高碑店镇六洲大厦</p>
+			                
 			            </div>
+			             
+			        </a>
+			    </li>
+			    <li class="mui-table-view-cell mui-media">
+			        <a href="javascript:;">
+			        	<div class="mui-input-row mui-radio mui-pull-right">
+		                    <label>默认</label>
+		                    <input name="radio" type="radio" class="defalut" onclick="getVals()" checked>
+		                </div>
+			            <div class="mui-media-body">
+			                 <span class="id">2</span>
+			                 	小明
+			                <p class='mui-ellipsis'>北京市朝阳区高碑店镇六洲大厦</p>
+			                
+			            </div>
+			             
 			        </a>
 			    </li>
 			    
 			</ul>
+
 			<button type="button" id="goAddAdress" class="mui-btn mui-btn-success mui-btn-block addAdress">新增地址</button>
 		</div>
 		
@@ -38,7 +60,11 @@
 		
 		
 	</body>
+
 	
+
+	<script src="../js/mui.min.js"></script>
+	<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 	<script>
 		mui.init({
 			swipeBack:true //启用右滑关闭功能
@@ -53,17 +79,37 @@
 			    url:'addAdress.html'        
 			  });
 		})
-		mui.ajax('selectAddress.do',{
-			type:'post',//HTTP请求类型
-			timeout:10000,//超时时间设置为10秒；
-				              
-			success:function(data){
-				console.log(data);
-			},
-			error:function(xhr,type,errorThrown){
-				//异常处理；
-				console.log(type);
-			}
-	});
+
+		function getVals(){
+		    var res = getRadioRes('defalut');
+		    if(res == null){mui.toast('请选择'); return;}
+		    $.ajax({
+		    	url:'',
+		    	data:{
+		    		id:res
+		    	},
+		    	type:'post',
+		    	success:function(){
+		    		
+		    	},
+		    	error:function(){
+		    		console.log("网络错误")
+		    	}
+		    })
+		}
+		function getRadioRes(className){
+		    var rdsObj = $('.'+className);
+		    
+		    var checkVal = null;
+		    rdsObj.each(function(){
+		    	if(this.checked){
+		        	checkVal = $(this).parent().next().children("span[class='id']").text();
+		        	//console.log(checkVal)
+		        }
+		    })
+		        
+		    
+		    return checkVal;
+		}
 	</script>
 </html>

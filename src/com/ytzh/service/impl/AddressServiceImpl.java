@@ -57,6 +57,17 @@ public class AddressServiceImpl implements AddressService{
 		// TODO Auto-generated method stub
 		return addressMapper.selectDefaultAddress(weixinUserInfo);
 	}
+	//修改地址状态
+	@Override
+	public int updateAddressSate(WeixinUserInfo weixinUserInfo, Address address) {
+		//修改非默认
+		int result=addressMapper.AddressSateUnDefault(weixinUserInfo);
+		if(result!=0){
+			result=addressMapper.updateAddressSate(address);
+		}
+		
+		return result;
+	}
 	
 
 }

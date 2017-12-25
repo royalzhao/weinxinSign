@@ -18,25 +18,34 @@
 		    <h1 class="mui-title">我的订单</h1>
 		</header>
 		<div class="mui-content">
-			<div class="noList">
+			<div class="noList" id="noList" style="display:none;">
 				<i class="mui-icon mui-icon-info"></i>
 				<p>
 					您还没有任何订单，赶紧去兑换吧
 				</p>
 			</div>
-			<ul class="mui-table-view">
-			    <li class="mui-table-view-cell mui-media">
-			        <a href="javascript:;">
-			            <img class="mui-media-object mui-pull-left" src="img/product2.jpg">
-			            <div class="mui-media-body">
-			                	<h4>四叶草手环</h4>
-			                <p class="mui-ellipsis"> 
-			                	<i class="iconfont icon-dou"></i>30 
-			                	<button type="button" id="button1" class="mui-btn mui-btn-green mui-btn-outlined">确认收货</button>
-			                </p>
-			            </div>
-			        </a>
-			    </li>
+			<script id="data-template" type="text/x-handlebars-template">
+                    
+                    <!--遍历news  -->
+                    {{#each datas}}
+    
+                   <li class="mui-table-view-cell mui-media">
+			        	<a href="javascript:;">
+			           	 <img class="mui-media-object mui-pull-left" src="{{g_img}}">
+			            	<div c	lass="mui-media-body">
+			                	<h4>{{g_name}}</h4>
+			                	<p class="mui-ellipsis"> 
+			                		<i class="iconfont icon-dou"></i>{{exchange_integration}} 
+			                		<button type="button" id="button1" class="mui-btn mui-btn-green mui-btn-outlined">确认收货</button>
+			                	</p>
+			            	</div>
+			        	</a>
+			   	   </li>
+                    
+                    {{/each}}
+           	</script>
+			<ul class="mui-table-view" id="data-view"  style="display:none;">
+			    
 			    
 			</ul>
 		</div>
@@ -47,7 +56,7 @@
 		
 		
 	</body>
-	
+	<script src="./js/handlebars-v4.0.10.js"></script>
 	<script>
 		mui.init({
 			swipeBack:true //启用右滑关闭功能
@@ -57,15 +66,41 @@
 		
 		goBack.addEventListener('tap',function(){
 			mui.openWindow({
-			    id:'index.html#tabbar-with-map',
-			    url:'index.html#tabbar-with-map'        
+			    id:'me.html',
+			    url:'me.html'        
 			  });
 		})
 		//获取订单
 		mui.ajax('selectOrder.do',{
 				type:'POST',//HTTP请求类型    
 				success:function(data){
-					console.log(data);
+					if(data != null){
+						document.getElementById('data-view').style.display="block";
+						//console.log(data)
+						var datas = JSON.parse(data);
+						 //获取模板数据
+						 console.log(datas)
+						
+			          	var theTemplateScript = document.getElementById('data-template').innerHTML;
+			           	//Handlebars.compile编译模板
+			           
+			           	var NewsHotTemplate = Handlebars.compile(theTemplateScript);
+			           	//定义数据
+			           	var context = {
+			               datas:datas,
+			           	};
+			           
+			          	 //把数据传送到模板
+			           
+			          	 var HotNewsCompiledHtml = NewsHotTemplate(context);
+			          	//更新到模板
+			           	
+			           	document.getElementById('data-view').innerHTML = HotNewsCompiledHtml;
+					}else{
+						document.getElementById('noList').style.display="block";
+						
+					}
+					
 				},
 				error:function(xhr,type,errorThrown){
 					//异常处理；
@@ -83,6 +118,7 @@
 				},
 				success:function(data){
 					console.log(data);
+					
 				},
 				error:function(xhr,type,errorThrown){
 					//异常处理；

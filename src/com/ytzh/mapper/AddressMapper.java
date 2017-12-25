@@ -19,5 +19,9 @@ public interface AddressMapper {
 	public Address selectAddressById(Address address);
 	//查询默认地址
 	public Address selectDefaultAddress(WeixinUserInfo weixinUserInfo);
+	//修改地址状态为默认
+	public int updateAddressSate(Address address);
+	//修改地址状态为非默认
+	public int AddressSateUnDefault(WeixinUserInfo weixinUserInfo);
 
 }

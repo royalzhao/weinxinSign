@@ -32,6 +32,7 @@ public class PersonController {
 			return "error";
 		}
 		List<Orders> myOrders=placeOrderService.selectOrder(weixinUserInfo);
+		System.out.println(myOrders);
 		return JSON.toJSONString(myOrders);
 	}
 	/**积分余额查询*/

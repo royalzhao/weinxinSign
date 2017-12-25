@@ -112,7 +112,7 @@
 		var full_address=document.getElementById("showUserPicker");
 		var telephone=document.getElementById("telephone");
 		var e_name=document.getElementById("e_name");
-	
+		var e_address=document.getElementById("showCityPicker3");
 		
 		var button1 = document.getElementById('button1');
 		button1.addEventListener('tap',function(){
@@ -142,7 +142,8 @@
 				data:{
 					full_address:full_address.value,
 					telephone:telephone.value,
-					e_name:e_name.value
+					e_name:e_name.value,
+					e_address:e_address.value
 				},
 				type:'POST',//HTTP请求类型    
 				success:function(data){

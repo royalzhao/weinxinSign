@@ -20,7 +20,11 @@
 	</select>
 	<!-- 查询订单 -->
 	<select id="selectOrder" parameterType="wUserInfo" resultType="Map">
-		SELECT o.* FROM yt.c_userinfo u  JOIN yt.c_orders o ON  o.openid=u.openid WHERE u.openid=#{openid}
+		SELECT 	og.* FROM c_userinfo u JOIN (SELECT o.openid,o.order_num,o.g_num,o.exchange_integration,o.o_date,o.address,o.consignee,
+		o.consignee_tele,o.full_address,o.tracking_num ,g.g_name,g.g_img 
+			FROM yt.c_orders o
+			LEFT JOIN yt.c_goods g ON o.g_id=g.g_id ) og ON u.openid=og.openid
+ 		WHERE u.openid=#{openid}
 	</select>
 	<!-- 确认收货 -->
 	<update id="firmOrder" parameterType="orders">

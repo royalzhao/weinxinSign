@@ -34,13 +34,15 @@
 			</a>
 		</nav>
 		<div class="mui-content mui-me">
-			
-			
-				<div class="myHead">
-					<div class="myFace">
-						<img src="img/face9.jpg" alt="头像" />
+				<script id="data-template" type="text/x-handlebars-template">
+                   <div class="myFace">
+						<img src="{{headimgurl}}" alt="头像" />
 					</div>
-					<p class="myName">欧阳夏花</p>
+					<p class="myName">{{nickname}}</p>
+                </script>
+			
+				<div class="myHead" id="myHead">
+					
 				</div>
 				<ul class="mui-table-view">
 				    <li class="mui-table-view-cell">
@@ -61,7 +63,7 @@
 			
 		</div>
 	</body>
-	
+	 <script src="./js/handlebars-v4.0.10.js"></script>
 	<script>
 		mui.init({
 			swipeBack:true //启用右滑关闭功能
@@ -124,7 +126,23 @@
 			type:'get',//HTTP请求类型
 			timeout:10000,//超时时间设置为10秒；	              
 			success:function(data){
-				console.log(data);
+				var data = JSON.parse(data);
+				//抓取模板数据
+				var theTemplateScript = document.getElementById('data-template').innerHTML;
+				
+				//编译模板
+				var theTemplate = Handlebars.compile(theTemplateScript);
+				//定义数据
+				var context = {
+					"headimgurl":data.headimgurl,
+					"nickname":data.nickname
+					
+				};
+				//传递数据
+				var theCompiledHtml = theTemplate(context);
+				//展示到页面
+				document.getElementById('myHead').innerHTML = theCompiledHtml;
+				
 			},
 			error:function(xhr,type,errorThrown){
 				//异常处理；

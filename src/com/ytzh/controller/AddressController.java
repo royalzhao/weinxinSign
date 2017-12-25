@@ -47,6 +47,19 @@ public class AddressController {
 		
 		return result+"";
 	}
+	/**修改地址状态*/
+	@RequestMapping(value="/updateAddressSate",method=RequestMethod.POST,produces="text/html;charset=UTF-8")
+	@ResponseBody
+	public String updateAddressSate(HttpServletRequest request,@ModelAttribute Address address){
+		WeixinUserInfo weixinUserInfo=(WeixinUserInfo) request.getSession().getAttribute("weixinUserInfo");
+		if(weixinUserInfo==null){
+			return "error";
+		}
+		int result=0;
+		result=addressService.updateAddressSate(weixinUserInfo,address);
+		
+		return result+"";
+	}
 	/**地址注销*/
 	@RequestMapping(value="/deleteAddress",method=RequestMethod.POST,produces="text/html;charset=UTF-8")
 	@ResponseBody

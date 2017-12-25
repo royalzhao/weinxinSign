@@ -20,7 +20,8 @@
 		<div class="mui-content">
 			<div class="paidou">
 				<p class="paidouNum">
-					<i class="iconfont icon-dou"></i>30
+					<i class="iconfont icon-dou"></i>
+					<span id="paidou">0</span>
 				</p>
 				<a id="goSign" class="mui-btn mui-btn-success mui-btn-block">点击去签到</a>
 				<a id="goShop" class="mui-btn mui-btn-success mui-btn-block">点击去兑换</a>
@@ -46,8 +47,8 @@
 		
 		goBack.addEventListener('tap',function(){
 			mui.openWindow({
-			    id:'index.html#tabbar-with-map',
-			    url:'index.html#tabbar-with-map'        
+			    id:'me.html',
+			    url:'me.html'        
 			  });
 		})
 		
@@ -60,15 +61,17 @@
 		
 		goShop.addEventListener('tap',function(){
 			mui.openWindow({
-			    id:'index.html#tabbar-with-chat',
-			    url:'index.html#tabbar-with-chat'        
+			    id:'shop.html',
+			    url:'shop.html'        
 			  });
 		})
 		mui.ajax('selectIntegration.do',{
-			type:'get',//HTTP请求类型
+			type:'post',//HTTP请求类型
 			timeout:10000,//超时时间设置为10秒；	              
 			success:function(data){
-				console.log(data);
+				var data = JSON.parse(data);
+				document.getElementById('paidou').innerHTML = data.sign_in_integration;
+				
 			},
 			error:function(xhr,type,errorThrown){
 				//异常处理；

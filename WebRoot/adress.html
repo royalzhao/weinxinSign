@@ -63,7 +63,7 @@
 
 	
 
-	<script src="../js/mui.min.js"></script>
+	<script src="js/mui.min.js"></script>
 	<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 	<script>
 		mui.init({
@@ -84,13 +84,13 @@
 		    var res = getRadioRes('defalut');
 		    if(res == null){mui.toast('请选择'); return;}
 		    $.ajax({
-		    	url:'',
+		    	url:'updateAddressSate.do',
 		    	data:{
-		    		id:res
+		    		address_id:res
 		    	},
 		    	type:'post',
 		    	success:function(){
-		    		
+		    		mui.toast('切换成功');
 		    	},
 		    	error:function(){
 		    		console.log("网络错误")

@@ -23,4 +23,7 @@ public interface AddressService {
 	public Address selectAddressById(Address address);
 	//查询默认地址
 	public Address selectDefaultAddress(WeixinUserInfo weixinUserInfo);
+	//修改地址状态
+	public int updateAddressSate(WeixinUserInfo weixinUserInfo,Address address);
+	
 }

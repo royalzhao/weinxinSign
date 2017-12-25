@@ -48,6 +48,7 @@ public class WeiXinController {
 		 WeixinUserInfo weixinUserInfo=new WeixinUserInfo();
 		 weixinUserInfo.setNickname("ssss");
 		 weixinUserInfo.setOpenid("a");
+		 weixinUserInfo.setHeadimgurl("img/qian.jpg");
 		 HttpSession session= req.getSession();
 		 session.setAttribute("weixinUserInfo", weixinUserInfo);
 		 System.out.println(weixinUserInfo);

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
 import com.ytzh.pojo.Address;
+import com.ytzh.pojo.Orders;
 import com.ytzh.pojo.WeiXinOauth2Token;
 import com.ytzh.pojo.WeixinUserInfo;
 import com.ytzh.service.AddressService;
@@ -26,11 +27,13 @@ public class AddressController {
 	@RequestMapping(value="/saveAddress",method=RequestMethod.POST,produces="text/html;charset=UTF-8")
 	@ResponseBody
 	public String addAddress(HttpServletRequest request,@ModelAttribute("address") Address address){
+		
 		int result=0;
 		WeixinUserInfo weixinUserInfo=(WeixinUserInfo) request.getSession().getAttribute("weixinUserInfo");
 		if(weixinUserInfo==null){
 			return "error";
 		}
+		System.out.println(address);
 		address.setOpenid(weixinUserInfo.getOpenid());
 		result=addressService.saveAddress(address);
 		return result+"";
@@ -72,6 +75,20 @@ public class AddressController {
 	public String selectAddressById(@ModelAttribute Address address){
 		
 		address=addressService.selectAddressById(address);
+		return JSON.toJSONString(address);
+	}
+	
+	/**
+	 * 查询默认地址*/
+	@RequestMapping(value="/defaultAddress",method=RequestMethod.GET,produces="text/html;charset=UTF-8")
+	@ResponseBody
+	public String selectDefaultAddress(HttpServletRequest request){
+		
+		WeixinUserInfo weixinUserInfo=(WeixinUserInfo) request.getSession().getAttribute("weixinUserInfo");
+		if(weixinUserInfo==null){
+			return "error";
+		}
+		Address address=addressService.selectDefaultAddress(weixinUserInfo);
 		return JSON.toJSONString(address);
 	}
 }

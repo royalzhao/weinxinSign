@@ -17,5 +17,7 @@ public interface AddressMapper {
 	public int updateAddress(Address address);
 	//查询地址ById
 	public Address selectAddressById(Address address);
+	//查询默认地址
+	public Address selectDefaultAddress(WeixinUserInfo weixinUserInfo);
 
 }

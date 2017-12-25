@@ -42,12 +42,13 @@
 							<div class="mui-card-header mui-card-media" style="height:40vw;background-image:url(img/product1.jpg)"></div>
 							<div class="mui-card-content">
 								<div class="mui-card-content-inner">
+									<span style="display:none">1</span>
 									<p style="color: #333;">闷烧杯</p>
 								</div>
 							</div>
 							<div class="mui-card-footer">
 								<span class="mui-card-link"><span class="price">50</span><i class="iconfont icon-dou"></i></span>
-								<a class="mui-card-link">立即兑换</a>
+								<a class="mui-card-link pay">立即兑换</a>
 							</div>
 						</div>
 			        </div>
@@ -56,12 +57,13 @@
 							<div class="mui-card-header mui-card-media" style="height:40vw;background-image:url(img/product2.jpg)"></div>
 							<div class="mui-card-content">
 								<div class="mui-card-content-inner">
+									<span style="display:none">2</span>
 									<p style="color: #333;">四叶草纯银手镯</p>
 								</div>
 							</div>
 							<div class="mui-card-footer">
 								<span class="mui-card-link"><span class="price">50</span><i class="iconfont icon-dou"></i></span>
-								<a class="mui-card-link">立即兑换</a>
+								<a class="mui-card-link pay">立即兑换</a>
 							</div>
 						</div>
 			        </div>
@@ -70,12 +72,13 @@
 							<div class="mui-card-header mui-card-media" style="height:40vw;background-image:url(img/product3.jpg)"></div>
 							<div class="mui-card-content">
 								<div class="mui-card-content-inner">
+									<span style="display:none">3</span>
 									<p style="color: #333;">海洋限量版洁面仪硅胶电动声波洁面仪</p>
 								</div>
 							</div>
 							<div class="mui-card-footer">
 								<span class="mui-card-link"><span class="price">50</span><i class="iconfont icon-dou"></i></span>
-								<a class="mui-card-link">立即兑换</a>
+								<a class="mui-card-link pay">立即兑换</a>
 							</div>
 						</div>
 			        </div>
@@ -85,6 +88,7 @@
 		</div>
 	</body>
 	<script src="../js/mui.min.js"></script>
+	<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 	<script>
 		mui.init({
 			swipeBack:true //启用右滑关闭功能
@@ -113,7 +117,46 @@
 			    url:'me.html'        
 			  });
 		})
-		
+		//立即兑换
+		$('.pay').each(function(){
+			$(this).on('tap',function(){
+				console.log($(this).parent().prev().find('span:eq(1)').text())
+				var g_name = $(this).parent().prev().find('p').text();
+				var g_id = $(this).parent().prev().find('span:eq(0)').text()
+				var cost_integration = $(this).prev().text()
+				$.ajax({
+					url:"pOrderReady.do",
+					data:{
+						//g_name:g_name,
+						//g_id:g_id,
+						cost_integration:cost_integration
+					},
+					type:"post",
+					success:function(data){
+						if(data==1){
+							var data = {};
+							data.g_name = g_name;
+							data.cost_integration = cost_integration;
+							var shop = JSON.stringify(data);
+							localStorage.setItem('shop',shop);
+							//console.log(shop)
+							mui.openWindow({
+							    id:'write_list.html',
+							    url:'write_list.html'        
+							});
+						}else{
+							alert("积分不足");
+						}
+					},
+					error:function(){
+						console.log("网络错误")
+					}
+					
+				})
+			})
+			
+			
+		})
 
 	</script>
 </html>

@@ -7,7 +7,7 @@
 	</delete>
 	<insert id="saveAddress" parameterType="address">
 		INSERT INTO yt.c_address (address_id, e_name, telephone, full_address, zip_code, e_address, openid,state)
-		VALUES(UUID(), #{e_name}, #{telephone}, #{full_address}, #{zip_code}, #{e_address}, #{openid},'0')
+		VALUES(UUID(), #{e_name}, #{telephone}, #{full_address}, #{zip_code}, #{e_address}, #{openid},'1')
 	</insert>
 	
 	<select id="selectAddress" resultType="address" parameterType="wUserInfo">
@@ -27,5 +27,11 @@
 	
 	<select id="selectAddressById" parameterType="address" resultType="address">
 		SELECT * FROM yt.c_address WHERE address_id=#{address_id}
+	</select>
+	
+	<!-- 查询默认地址 -->
+	<select id="selectDefaultAddress" resultType="address" parameterType="wUserInfo">
+		SELECT address.* FROM yt.c_userinfo userinfo RIGHT JOIN yt.c_address address ON address.openid=userinfo.openid
+		 WHERE userinfo.openid=#{openid} AND state='1'
 	</select>
 </mapper>

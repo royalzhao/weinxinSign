@@ -51,5 +51,12 @@ public class AddressServiceImpl implements AddressService{
 	public Address selectAddressById(Address address) {	
 		return addressMapper.selectAddressById(address);
 	}
+	//查询默认地址
+	@Override
+	public Address selectDefaultAddress(WeixinUserInfo weixinUserInfo) {
+		// TODO Auto-generated method stub
+		return addressMapper.selectDefaultAddress(weixinUserInfo);
+	}
+	
 
 }

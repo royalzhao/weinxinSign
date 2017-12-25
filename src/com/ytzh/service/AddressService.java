@@ -21,4 +21,6 @@ public interface AddressService {
 	public int deleteAddress(Address address);
 	//查询地址信息ByID
 	public Address selectAddressById(Address address);
+	//查询默认地址
+	public Address selectDefaultAddress(WeixinUserInfo weixinUserInfo);
 }

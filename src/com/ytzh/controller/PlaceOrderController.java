@@ -48,6 +48,7 @@ public class PlaceOrderController {
 		if(weixinUserInfo==null){
 			return "error";
 		}
+		System.out.println(orders);
 		orders.setOpenid(weixinUserInfo.getOpenid());
 		int result=placeOrderService.creatOrder(orders);	
 		return result+"";

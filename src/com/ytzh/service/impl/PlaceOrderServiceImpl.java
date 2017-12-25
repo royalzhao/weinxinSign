@@ -53,6 +53,7 @@ public class PlaceOrderServiceImpl implements PlaceOrderService {
 	public int pOrderReady(WeixinUserInfo weixinUserInfo,Goods good) {
 		int result=0;
 		Map<String,Object> map=new HashMap<String, Object>();
+		System.out.println();
 		//查询用户签到积分数
 		Vip vip=placeOrderMapper.selectIntegration(weixinUserInfo);
 		int sign_in_integration= Integer.parseInt(vip.getSign_in_integration()) ;

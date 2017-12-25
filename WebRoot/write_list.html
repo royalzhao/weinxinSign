@@ -39,9 +39,10 @@
 			            	<img src="img/product1.jpg" alt="" style="width: 100%;" />
 			            </span>
 			            <div class="mui-media-body">
-			                <span>焖烧杯</span>
+			                <span id="shop_name">焖烧杯</span>
 			                <p class='mui-ellipsis'>
-			                	<i class="iconfont icon-dou"></i>20
+			                	<i class="iconfont icon-dou"></i>
+			                	<span class="shop_count">20</span>	
 			                	<span class="mui-pull-right">x1</span>
 			                </p>
 			                
@@ -72,19 +73,19 @@
 			    <li class="mui-table-view-cell">
 			    	商品金额
 			    	<span class="mui-pull-right">
-			    		<i class="iconfont icon-dou"></i>20
+			    		<i class="iconfont icon-dou"></i><span class="shop_count">20</span>
 			    	</span>
 			    </li>
 			    <li class="mui-table-view-cell">
 			    	运费
 			    	<span class="mui-pull-right">
-			    		10
+			    		0
 			    	</span>
 			    </li>
 			    <li class="mui-table-view-cell">
 			    	派豆
 			    	<span class="mui-pull-right">
-			    		<i class="iconfont icon-dou"></i>-20
+			    		<i class="iconfont icon-dou"></i>-<span class="shop_count">20</span>
 			    	</span>
 			    </li>
 			</ul>
@@ -104,6 +105,7 @@
 	
 	</body>
 	<script src="../js/mui.min.js"></script>
+	<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 	<script>
 		mui.init({
 			swipeBack:true //启用右滑关闭功能
@@ -138,6 +140,40 @@
 			address.innerText = userAdress.address;
 			phone.innerText = userAdress.phone;
 		}
+
+		var shop = JSON.parse(localStorage.getItem('shop'));
+		
+		if(shop != null){
+
+			
+			$('#shop_name').text(shop.g_name)
+			$('.shop_count').text(shop.cost_integration)
+			
+		}
+		//获取派豆
+		$.ajax({
+			url:"selectIntegration.do",
+			type:"post",
+			success:function(data){
+				console.log(data);
+			},
+			error:function(){
+				console.log("网络错误")
+			}
+			
+		})
+		//查询默认地址
+		$.ajax({
+			url:"defaultAddress.do",
+			type:"post",
+			success:function(data){
+				console.log(data);
+			},
+			error:function(){
+				console.log("网络错误")
+			}
+			
+		})
 		
 	</script>
 </html>

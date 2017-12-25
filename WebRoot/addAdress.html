@@ -29,11 +29,12 @@
 			        <label>手机</label>
 			        <input type="text" id="telephone" class="mui-input-clear" placeholder="请输入手机号码">
 			    </div>
+			    <!-- 
 			    <div class="mui-input-row">
 			        <label>省市县</label>
-			        <input type="text" id="showCityPicker3" class="mui-input-clear"  readonly="">
+			        <input type="text" id="showCityPicker3" class="mui-input-clear"  >
 			    </div>
-			    
+			     -->
 			    <div class="mui-input-row">
 			        <label>详细地址</label>
 			        <input type="text" id="showUserPicker" class="mui-input-clear"  >
@@ -41,7 +42,7 @@
 			    <div class="mui-input-row">
 			        <label>是否默认</label>
 			        <!-- 开关打开状态，多了一个.mui-active类 -->
-					<div class="mui-switch mui-active">
+					<div id="mySwitch" class="mui-switch">
 					  <div class="mui-switch-handle"></div>
 					</div>
 			    </div>
@@ -55,15 +56,12 @@
 		
 		
 	</body>
-	<script src="js/mui.min.js"></script>
-	<script src="js/mui.picker.js"></script>
-	<script src="js/mui.poppicker.js"></script>
-	<script src="js/city.data-3.js" type="text/javascript" charset="utf-8"></script>
+	<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 	<script>
 		mui.init({
 			swipeBack:true //启用右滑关闭功能
 		});
-		
+		/**
 		(function($, doc) {
 			$.init();
 			$.ready(function() {
@@ -86,7 +84,7 @@
 				
 			});
 		})(mui, document);
-		
+		**/
 		var goBack = document.getElementById('goBack');
 		
 		goBack.addEventListener('tap',function(){
@@ -95,19 +93,33 @@
 			    url:'adress.html'        
 			  });
 		})
-		var e_address=document.getElementById("showCityPicker3");
+		
+		var isActive = document.getElementById("mySwitch").classList.contains("mui-active");
+		var state;
+		if(isActive){
+		  console.log("打开状态");
+		  state=1;
+		}else{
+		  console.log("关闭状态");  
+		  state=0;
+		}
+		
+		
+		
 		var full_address=document.getElementById("showUserPicker");
 		var telephone=document.getElementById("telephone");
 		var e_name=document.getElementById("e_name");
+	
 		
 		var button1 = document.getElementById('button1');
 		button1.addEventListener('tap',function(){
-			mui.ajax('saveAddress.do',{
+			$.ajax({
+				url:'saveAddress.do',
 				data:{
-					e_address:e_address.value,
 					full_address:full_address.value,
 					telephone:telephone.value,
-					e_name:e_name.value
+					e_name:e_name.value,
+					state:state
 				},
 				type:'POST',//HTTP请求类型    
 				success:function(data){

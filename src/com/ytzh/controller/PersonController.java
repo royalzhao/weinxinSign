@@ -54,4 +54,17 @@ public class PersonController {
 		
 		return result+"";
 	}
+	
+	/**个人信息*/
+	@RequestMapping(value="/getUserinfo",method=RequestMethod.GET,produces="text/html;charset=UTF-8")
+	@ResponseBody
+	public String getUserinfo(HttpServletRequest request,@ModelAttribute Orders order){
+		
+		WeixinUserInfo weixinUserInfo=(WeixinUserInfo) request.getSession().getAttribute("weixinUserInfo");
+		if(weixinUserInfo==null){
+			return "error";
+		}
+		return JSON.toJSONString(weixinUserInfo);
+	}
+	
 }

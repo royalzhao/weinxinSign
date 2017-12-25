@@ -87,7 +87,7 @@
 			</div>
 		</div>
 	</body>
-	<script src="../js/mui.min.js"></script>
+	
 	<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 	<script>
 		mui.init({
@@ -120,7 +120,7 @@
 		//立即兑换
 		$('.pay').each(function(){
 			$(this).on('tap',function(){
-				console.log($(this).parent().prev().find('span:eq(1)').text())
+				
 				var g_name = $(this).parent().prev().find('p').text();
 				var g_id = $(this).parent().prev().find('span:eq(0)').text()
 				var cost_integration = $(this).prev().text()
@@ -157,6 +157,17 @@
 			
 			
 		})
-
+		//获取商品列表
+		$.ajax({
+			url:"showContainer.do",
+			type:"post",
+			success:function(data){
+				console.log(data);
+			},
+			error:function(){
+				console.log("网络错误")
+			}
+			
+		})
 	</script>
 </html>

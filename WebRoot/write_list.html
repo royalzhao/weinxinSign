@@ -104,7 +104,7 @@
 		</div>
 	
 	</body>
-	<script src="../js/mui.min.js"></script>
+	
 	<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 	<script>
 		mui.init({
@@ -115,8 +115,8 @@
 		
 		goBack.addEventListener('tap',function(){
 			mui.openWindow({
-			    id:'index.html.mui-me',
-			    url:'index.html.mui-me'        
+			    id:'index.html',
+			    url:'index.html'        
 			  });
 		})
 		
@@ -174,6 +174,29 @@
 			}
 			
 		})
+		$("button").click(function(){
+			//提交订单
+			$.ajax({
+				url:"placeOrder.do",
+				type:"post",
+				data:{
+					//orders
+					g_id:'', //商品id（现用商品名）
+					g_num:'1', //商品数量
+					exchange_integration:'', //兑换积分
+					address:'',//收货地址
+					consignee:'',//收件人姓名
+					consignee_tele:'',//收件人电话
+					full_address:''//详细收货地址
+				},
+				success:function(data){
+					console.log(data);
+				},
+				error:function(){
+					console.log("网络错误")
+				}
+			})
+		});
 		
 	</script>
 </html>

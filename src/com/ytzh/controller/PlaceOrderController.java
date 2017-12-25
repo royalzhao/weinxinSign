@@ -36,9 +36,9 @@ public class PlaceOrderController {
 			return "error";
 		}
 		int result=placeOrderService.pOrderReady(weixinUserInfo,good);
+		
 		return result+"";
 	}
-	
 	/***
 	 * 下单结算*/
 	@RequestMapping(value="/placeOrder",method=RequestMethod.POST,produces="text/html;charset=UTF-8")

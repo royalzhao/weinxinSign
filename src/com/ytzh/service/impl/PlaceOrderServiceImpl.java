@@ -31,12 +31,12 @@ public class PlaceOrderServiceImpl implements PlaceOrderService {
 	public int creatOrder(Orders orders) {
 		String orderNum=OrderUtil.getOrderNum();
 		orders.setOrder_num(orderNum);
-		//下单
-		int result=placeOrderMapper.saveOrder(orders);
+		//结算
+		int result=placeOrderMapper.settleAccounts(orders);
+		
 		if(result==1){
-			
-			//结算
-			result=placeOrderMapper.settleAccounts(orders);
+			//下单
+			result=placeOrderMapper.saveOrder(orders);
 		}
 		
 		return result;

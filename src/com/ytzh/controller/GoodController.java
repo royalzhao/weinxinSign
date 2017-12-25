@@ -21,10 +21,11 @@ public class GoodController {
 	
 	/**
 	 * 货柜展示*/
-	@RequestMapping(value="/showContainer",method=RequestMethod.GET,produces="text/html;charset=UTF-8")
+	@RequestMapping(value="/showContainer",method=RequestMethod.POST,produces="text/html;charset=UTF-8")
 	@ResponseBody
 	public String showContainer(){
 		List<Goods> goodsList= goodService.selectGoodList();
+		System.out.println(goodsList);
 		return JSON.toJSONString(goodsList);
 	}
 	/**商品详情*/

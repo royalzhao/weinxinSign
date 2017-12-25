@@ -35,7 +35,7 @@ public class PersonController {
 		return JSON.toJSONString(myOrders);
 	}
 	/**积分余额查询*/
-	@RequestMapping(value="/selectIntegration",method=RequestMethod.GET,produces="text/html;charset=UTF-8")
+	@RequestMapping(value="/selectIntegration",method=RequestMethod.POST,produces="text/html;charset=UTF-8")
 	@ResponseBody
 	public String selectIntegration(HttpServletRequest request){
 		WeixinUserInfo weixinUserInfo=(WeixinUserInfo) request.getSession().getAttribute("weixinUserInfo");

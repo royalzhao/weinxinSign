@@ -38,7 +38,7 @@
 		
 		
 	</body>
-	<script src="../js/mui.min.js"></script>
+	
 	<script>
 		mui.init({
 			swipeBack:true //启用右滑关闭功能
@@ -54,7 +54,7 @@
 			  });
 		})
 		mui.ajax('selectAddress.do',{
-			type:'get',//HTTP请求类型
+			type:'post',//HTTP请求类型
 			timeout:10000,//超时时间设置为10秒；
 				              
 			success:function(data){

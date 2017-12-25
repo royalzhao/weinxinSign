@@ -48,7 +48,6 @@
 		
 		
 	</body>
-	<script src="../js/mui.min.js"></script>
 	<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 	<script>
 		mui.init({
@@ -85,7 +84,17 @@
 			
 		});
 		
-		
+		mui.ajax('selectAddress.do',{
+			type:'post',//HTTP请求类型
+			timeout:10000,//超时时间设置为10秒；	              
+			success:function(data){
+				console.log(data);
+			},
+			error:function(xhr,type,errorThrown){
+				//异常处理；
+				console.log(type);
+			}
+	});
 
 		
 	</script>

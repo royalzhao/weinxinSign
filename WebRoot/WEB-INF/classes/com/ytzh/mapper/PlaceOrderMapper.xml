@@ -6,7 +6,7 @@
 	<insert id="saveOrder" parameterType="orders">
 		INSERT INTO yt.c_orders (order_num, g_id, g_num, exchange_integration, state, o_date, address, 
 	consignee, consignee_tele, full_address, zip_code, tracking_num, openid)VALUES
-	(#{order_num}, #{g_id}, '1', #{exchange_integration}, '1', #{o_date}, #{address}, #{consignee}, #{consignee_tele}, 
+	(#{order_num}, #{g_id}, #{g_num}, #{exchange_integration}, '1', NOW(), #{address}, #{consignee}, #{consignee_tele}, 
 	#{full_address}, #{zip_code}, #{tracking_num}, #{openid})
 	</insert>
 	<!-- 结算 -->

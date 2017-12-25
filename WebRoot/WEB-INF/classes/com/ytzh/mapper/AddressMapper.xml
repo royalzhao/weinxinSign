@@ -32,6 +32,6 @@
 	<!-- 查询默认地址 -->
 	<select id="selectDefaultAddress" resultType="address" parameterType="wUserInfo">
 		SELECT address.* FROM yt.c_userinfo userinfo RIGHT JOIN yt.c_address address ON address.openid=userinfo.openid
-		 WHERE userinfo.openid=#{openid} AND state='1'
+		 WHERE userinfo.openid='a' AND address.state='1'
 	</select>
 </mapper>

@@ -57,7 +57,7 @@ public class AddressController {
 		return result+"";
 	}
 	/**地址查询*/
-	@RequestMapping(value="/selectAddress",method=RequestMethod.GET,produces="text/html;charset=UTF-8")
+	@RequestMapping(value="/selectAddress",method=RequestMethod.POST,produces="text/html;charset=UTF-8")
 	@ResponseBody
 	public String addresslist(HttpServletRequest request){
 		WeixinUserInfo weixinUserInfo=(WeixinUserInfo) request.getSession().getAttribute("weixinUserInfo");
@@ -80,7 +80,7 @@ public class AddressController {
 	
 	/**
 	 * 查询默认地址*/
-	@RequestMapping(value="/defaultAddress",method=RequestMethod.GET,produces="text/html;charset=UTF-8")
+	@RequestMapping(value="/defaultAddress",method=RequestMethod.POST,produces="text/html;charset=UTF-8")
 	@ResponseBody
 	public String selectDefaultAddress(HttpServletRequest request){
 		

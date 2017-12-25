@@ -5,6 +5,8 @@ public class Orders {
 	private String order_num;
 	//商品编号
 	private String g_id;
+	//商品名
+	private String g_name;
 	//商品数量
 	private String g_num;
 	//兑换积分
@@ -106,28 +108,15 @@ public class Orders {
 	public void setTracking_num(String trackingNum) {
 		tracking_num = trackingNum;
 	}
-	public Orders(String orderNum, String gId, String gNum,
-			String exchangeIntegration, String state, String oDate,
-			String address, String consignee, String consigneeTele,
-			String fullAddress, String zipCode, String trackingNum,String openid) {
-		super();
-		this.order_num = orderNum;
-		this.g_id = gId;
-		this.g_num = gNum;
-		this.exchange_integration = exchangeIntegration;
-		this.state = state;
-		this.o_date = oDate;
-		this.address = address;
-		this.consignee = consignee;
-		this.consignee_tele = consigneeTele;
-		this.full_address = fullAddress;
-		this.zip_code = zipCode;
-		this.tracking_num = trackingNum;
-		this.openid=openid;
+	
+	public String getG_name() {
+		return g_name;
+	}
+	public void setG_name(String gName) {
+		g_name = gName;
 	}
 	public Orders() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	@Override
 	public String toString() {
@@ -135,12 +124,9 @@ public class Orders {
 				+ ", consignee_tele=" + consignee_tele
 				+ ", exchange_integration=" + exchange_integration
 				+ ", full_address=" + full_address + ", g_id=" + g_id
-				+ ", g_num=" + g_num + ", o_date=" + o_date + ", openid="
-				+ openid + ", order_num=" + order_num + ", state=" + state
-				+ ", tracking_num=" + tracking_num + ", zip_code=" + zip_code
-				+ "]";
+				+ ", g_name=" + g_name + ", g_num=" + g_num + ", o_date="
+				+ o_date + ", openid=" + openid + ", order_num=" + order_num
+				+ ", state=" + state + ", tracking_num=" + tracking_num
+				+ ", zip_code=" + zip_code + "]";
 	}
-	
-	
-	
 }

@@ -64,7 +64,7 @@
 				        </a>
 				    </li>
 				    <li class="mui-table-view-cell mui-media media-active">
-				        <a href="javascript:;">
+				        <a href="javascript:;" id="shop">
 				            <img class="mui-media-object mui-pull-left" src="img/qian.jpg">
 				            <div class="mui-media-body">
 				            	<h4>兑换</h4>
@@ -79,7 +79,7 @@
 			
 		</div>
 	</body>
-	<script src="../js/mui.min.js"></script>
+	
 	<script>
 		mui.init({
 			swipeBack:true //启用右滑关闭功能
@@ -88,6 +88,7 @@
 		var goIndex = document.getElementById('goIndex');
 		var goShop = document.getElementById('goShop');
 		var goMe = document.getElementById('goMe');
+		var signin = document.getElementById('signin');
 		var signin = document.getElementById('signin');
 		
 		goIndex.addEventListener('tap',function(){
@@ -112,6 +113,12 @@
 			mui.openWindow({
 			    id:'sign.jsp',
 			    url:'sign.jsp'        
+			  });
+		})
+		shop.addEventListener('tap',function(){
+			mui.openWindow({
+			    id:'shop.html',
+			    url:'shop.html'        
 			  });
 		})
 	</script>

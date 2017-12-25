@@ -147,7 +147,14 @@
 				},
 				type:'POST',//HTTP请求类型    
 				success:function(data){
-					console.log(data);
+					if(data == 'error'){
+						mui.toast('请退出并重新登录')
+					}else if(data == '1'){
+						mui.toast('地址添加成功');
+						setTimeout("mui.back();",1000);
+						
+					}
+					
 				},
 				error:function(xhr,type,errorThrown){
 					//异常处理；

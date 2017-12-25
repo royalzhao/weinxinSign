@@ -15,6 +15,13 @@ public class Address {
 	private String e_address;
 	//id
 	private String address_id;
+	private String state ;
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
 	public String getE_name() {
 		return e_name;
 	}
@@ -62,9 +69,10 @@ public class Address {
 	public String toString() {
 		return "Address [address_id=" + address_id + ", e_address=" + e_address
 				+ ", e_name=" + e_name + ", full_address=" + full_address
-				+ ", openid=" + openid + ", telephone=" + telephone
-				+ ", zip_code=" + zip_code + "]";
+				+ ", openid=" + openid + ", state=" + state + ", telephone="
+				+ telephone + ", zip_code=" + zip_code + "]";
 	}
+	
 	
 	
 	

@@ -55,8 +55,8 @@ public class AddressController {
 		if(weixinUserInfo==null){
 			return "error";
 		}
-		int result=0;
-		result=addressService.updateAddressSate(weixinUserInfo,address);
+		
+		int result=addressService.updateAddressSate(weixinUserInfo,address);
 		
 		return result+"";
 	}
@@ -78,7 +78,7 @@ public class AddressController {
 			return "error";
 		}
 		List<Address> addresslist=addressService.selectAddress(weixinUserInfo);
-		System.out.println(addresslist);
+		
 		return JSON.toJSONString(addresslist);
 	}
 	/***

@@ -32,7 +32,7 @@ public class PersonController {
 			return "error";
 		}
 		List<Orders> myOrders=placeOrderService.selectOrder(weixinUserInfo);
-		System.out.println(myOrders);
+		
 		return JSON.toJSONString(myOrders);
 	}
 	/**积分余额查询*/
@@ -47,12 +47,12 @@ public class PersonController {
 		return JSON.toJSONString(vip);
 	}
 	/***确认收货*/
-	@RequestMapping(value="/firmOrder",method=RequestMethod.GET,produces="text/html;charset=UTF-8")
+	@RequestMapping(value="/firmOrder",method=RequestMethod.POST,produces="text/html;charset=UTF-8")
 	@ResponseBody
 	public String firmOrder(HttpServletRequest request,@ModelAttribute Orders order){
-		
+		System.out.println(order);
 		int result =placeOrderService.firmOrder(order);
-		
+		System.out.println(result);
 		return result+"";
 	}
 	

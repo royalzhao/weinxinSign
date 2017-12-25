@@ -17,40 +17,39 @@
 		    <h1 class="mui-title">常用地址</h1>
 		</header>
 		<div class="mui-content">
-			<ul class="mui-table-view">
-				
-			    <li class="mui-table-view-cell mui-media">
-			        <a href="javascript:;">
-			        	<div class="mui-input-row mui-radio mui-pull-right">
-		                    <label>默认</label>
-		                    <input name="radio" type="radio" class="defalut" onclick="getVals()" checked>
-		                </div>
-			            <div class="mui-media-body">
-			                <span class="id">1</span>
-			                赵帅
-			                <p class='mui-ellipsis'>北京市朝阳区高碑店镇六洲大厦</p>
+		<div class="noList" id="noList" style="display:none;">
+				<i class="mui-icon mui-icon-info"></i>
+				<p>
+					还没有地址呢，快添加一个吧
+				</p>
+			</div>
+			<script id="data-template" type="text/x-handlebars-template">
+                    <!--遍历news  -->
+                    {{#each datas}}
+    
+                    <li class="mui-table-view-cell mui-media">
+			        	<a href="javascript:;">
+			        		<div class="mui-input-row mui-radio mui-pull-right">
+		              	      <label>默认</label>
+		              	      <input name="default" type="radio" value="{{state}}" class="defalut{{address_id}}">
+							  <span class="id" style="display:none;">{{address_id}}</span>
+		             	   </div>
+			          	  <div class="mui-media-body">
+			          	     {{e_name}}{{telephone}}
+			           	     <p class='mui-ellipsis'>{{e_address}}</p>
 			                
-			            </div>
+			         	   </div>
 			             
-			        </a>
-			    </li>
-			    <li class="mui-table-view-cell mui-media">
-			        <a href="javascript:;">
-			        	<div class="mui-input-row mui-radio mui-pull-right">
-		                    <label>默认</label>
-		                    <input name="radio" type="radio" class="defalut" onclick="getVals()" checked>
-		                </div>
-			            <div class="mui-media-body">
-			                 <span class="id">2</span>
-			                 	小明
-			                <p class='mui-ellipsis'>北京市朝阳区高碑店镇六洲大厦</p>
-			                
-			            </div>
-			             
-			        </a>
-			    </li>
+			     	  	 </a>
+			  		  </li>
+                    
+                    {{/each}}
+           	</script>
+			<ul class="mui-table-view" id="data-view"  style="display:none;">
+			    
 			    
 			</ul>
+			
 
 			<button type="button" id="goAddAdress" class="mui-btn mui-btn-success mui-btn-block addAdress">新增地址</button>
 		</div>
@@ -65,6 +64,7 @@
 
 	<script src="js/mui.min.js"></script>
 	<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+	 <script src="./js/handlebars-v4.0.10.js"></script>
 	<script>
 		mui.init({
 			swipeBack:true //启用右滑关闭功能
@@ -80,36 +80,92 @@
 			  });
 		})
 
-		function getVals(){
-		    var res = getRadioRes('defalut');
-		    if(res == null){mui.toast('请选择'); return;}
-		    $.ajax({
-		    	url:'updateAddressSate.do',
-		    	data:{
-		    		address_id:res
-		    	},
-		    	type:'post',
-		    	success:function(){
-		    		mui.toast('切换成功');
-		    	},
-		    	error:function(){
-		    		console.log("网络错误")
-		    	}
-		    })
-		}
-		function getRadioRes(className){
-		    var rdsObj = $('.'+className);
-		    
-		    var checkVal = null;
-		    rdsObj.each(function(){
-		    	if(this.checked){
-		        	checkVal = $(this).parent().next().children("span[class='id']").text();
-		        	//console.log(checkVal)
-		        }
-		    })
-		        
-		    
-		    return checkVal;
-		}
+		
+
+		$.ajax({
+			url:'selectAddress.do',
+			type:'POST',//HTTP请求类型    
+			success:function(data){
+				if(data != null){
+					document.getElementById('data-view').style.display="block";
+					//console.log(data)
+					var datas = JSON.parse(data);
+					 //获取模板数据
+					 console.log(datas)
+					
+		          	var theTemplateScript = document.getElementById('data-template').innerHTML;
+		           	//Handlebars.compile编译模板
+		           
+		           	var NewsHotTemplate = Handlebars.compile(theTemplateScript);
+		           	//定义数据
+		           	var context = {
+		               datas:datas,
+		           	};
+		           
+		          	 //把数据传送到模板
+		           
+		          	 var HotNewsCompiledHtml = NewsHotTemplate(context);
+		          	//更新到模板
+		           	
+		           	document.getElementById('data-view').innerHTML = HotNewsCompiledHtml;
+
+		          	//默认地址设置为checked
+		           	$("input[name='default'][value='1']").attr("checked",true);
+		           	
+		           	//切换默认地址方法
+		           	
+		    		$('input:radio').each(function(index,domEle){
+						$(this).on('tap',function(){
+		    				getVals($(this).attr('class'));
+			    		});
+						
+		    		});
+		    		function getVals(classname){
+		    		
+		       		    var res = getRadioRes(classname);
+		       		    
+		       		    //alert(res);
+		       		    $.ajax({
+		       		    	url:'updateAddressSate.do',
+		       		    	data:{
+		       		    		address_id:res
+		       		    	},
+		       		    	type:'post',
+		       		    	success:function(){
+		       		    		mui.toast('切换成功');
+		       		    	},
+		       		    	error:function(){
+		       		    		console.log("网络错误")
+		       		    	}
+		       		    })
+		       		}
+		       		
+		    		function getRadioRes(className){
+		    		    var rdsObj = $('.'+className);
+		    		    
+		    		    var checkVal = null;
+		    		    rdsObj.each(function(){
+		    		    	if(this.checked){
+		    		        	checkVal = $(this).next().text();
+		    		        	console.log(checkVal)
+		    		        }else{
+		    		        	checkVal = $(this).next().text();
+		    		        }
+		    		    })
+		    		        
+		    		    
+		    		    return checkVal;
+		    		}
+		           	
+				}else{
+					document.getElementById('noList').style.display="block";
+					
+				}
+			},
+			error:function(xhr,type,errorThrown){
+				//异常处理；
+				console.log(type);
+			}
+		});
 	</script>
 </html>

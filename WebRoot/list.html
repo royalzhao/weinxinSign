@@ -36,8 +36,9 @@
 			                	<h4>{{g_name}}</h4>
 			                	<p class="mui-ellipsis"> 
 			                		<i class="iconfont icon-dou"></i>{{exchange_integration}} 
-			                		<button type="button" id="button1" class="mui-btn mui-btn-green mui-btn-outlined">确认收货</button>
-			                	</p>
+			                		<button type="button" class="button1" class="mui-btn mui-btn-green mui-btn-outlined">确认收货</button>
+			                		<span style="display:none;">{{order_num}}</span>
+								</p>
 			            	</div>
 			        	</a>
 			   	   </li>
@@ -56,6 +57,7 @@
 		
 		
 	</body>
+	<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 	<script src="./js/handlebars-v4.0.10.js"></script>
 	<script>
 		mui.init({
@@ -96,6 +98,36 @@
 			          	//更新到模板
 			           	
 			           	document.getElementById('data-view').innerHTML = HotNewsCompiledHtml;
+
+
+			          //确认收货
+			          	$('.button1').each(function(){
+			          		$(this).on('tap',function(){
+			          			window.aaa = $(this).next().text()
+				    			var a = mui.confirm('确认收货？','小派提示您',function(e){
+				    				if (e.index == 1) {
+				    					mui.ajax('firmOrder.do',{
+						    				type:'POST',//HTTP请求类型    
+						    				data:{
+						    					order_num:aaa   //*******订单编号
+						    				},
+						    				success:function(data){
+						    					location.reload();
+											},
+						    				error:function(xhr,type,errorThrown){
+						    					//异常处理；
+						    					console.log(type);
+						    				}
+						    			});
+				                    } else {
+				                        
+				                    }
+				    				
+				    			});
+				    		})
+				        })
+			    		
+			           	
 					}else{
 						document.getElementById('noList').style.display="block";
 						
@@ -107,24 +139,6 @@
 					console.log(type);
 				}
 			});
-		//确认收货
-		var button1 = document.getElementById('button1');
 		
-		button1.addEventListener('tap',function(){
-			mui.ajax('selectOrder.do',{
-				type:'POST',//HTTP请求类型    
-				data:{
-					order_num:''   //*******订单编号
-				},
-				success:function(data){
-					console.log(data);
-					
-				},
-				error:function(xhr,type,errorThrown){
-					//异常处理；
-					console.log(type);
-				}
-			});
-		})
 	</script>
 </html>

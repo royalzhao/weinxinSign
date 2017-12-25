@@ -8,7 +8,6 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
 		<link rel="stylesheet" type="text/css" href="css/app.css"/>
-		<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
 		<link rel="stylesheet" type="text/css" href="css/index.css"/>
 		<link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_483809_vy8u1m2ivs1nhfr.css"/>
 		<link href="css/mui.picker.css" rel="stylesheet" />
@@ -17,17 +16,17 @@
 	<body>
 		<header class="mui-bar mui-bar-nav">
 		    <a id="goBack" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-		    <h1 class="mui-title">新增地址</h1>
+		    <h1 class="mui-title">修改地址</h1>
 		</header>
 		<div class="mui-content">
 			<form class="mui-input-group">
 			    <div class="mui-input-row">
 			        <label>姓名</label>
-			        <input type="text" class="mui-input-clear" placeholder="请输入联系人姓名">
+			        <input type="text" id="e_name" class="mui-input-clear" placeholder="请输入联系人姓名">
 			    </div>
 			    <div class="mui-input-row">
 			        <label>手机</label>
-			        <input type="text" class="mui-input-clear" placeholder="请输入手机号码">
+			        <input type="text" id="telephone" class="mui-input-clear" placeholder="请输入手机号码">
 			    </div>
 			    <div class="mui-input-row">
 			        <label>省市县</label>
@@ -36,18 +35,12 @@
 			    
 			    <div class="mui-input-row">
 			        <label>详细地址</label>
-			        <input type="text" id="showUserPicker" class="mui-input-clear" value="" readonly="">
+			        <input type="text" id="showUserPicker" class="mui-input-clear" value="" >
 			    </div>
-			    <div class="mui-input-row">
-			        <label>是否默认</label>
-			        <!-- 开关打开状态，多了一个.mui-active类 -->
-					<div class="mui-switch mui-active">
-					  <div class="mui-switch-handle"></div>
-					</div>
-			    </div>
+			   
 			    
 			</form>
-			<button type="button" class="mui-btn mui-btn-success mui-btn-block addAdress">保存</button>
+			<button type="button" id="updateAddress" class="mui-btn mui-btn-success mui-btn-block addAdress">修改</button>
 		</div>
 		
 		
@@ -96,22 +89,47 @@
 			  });
 		})
 		
-		mui.ajax('saveAddress.do',{
-			data:{
-				e_address:'1',
-				full_address:'2',
-				telephone:'3',
-				e_name:'4'
-			},
-			type:'POST',//HTTP请求类型    
-			success:function(data){
-				console.log(1);
-				console.log(data);
-			},
-			error:function(xhr,type,errorThrown){
-				//异常处理；
-				console.log(type);
-			}
-		});
+		var updateAddress = document.getElementById('updateAddress');
+		updateAddress.addEventListener('tap',function(){
+			
+			//表单验证
+			if($('#e_name').val().length==0){
+				mui.toast('请输入姓名')
+                return false;
+            }
+            
+			var re = /^1[3|7|5|8]\d{9}$/;
+			if(re.test($('#telephone').val())){     //验证成功
+                if($('#showUserPicker').val().length==0){
+	            	mui.toast('请输入详细地址')
+	                return false;
+	            }
+                
+			}else{      //验证失败
+				mui.toast('请输入正确的手机号')
+                
+                return false;
+            }
+			
+			
+			mui.ajax('saveAddress.do',{
+				data:{
+					e_address:'1',
+					full_address:'2',
+					telephone:'3',
+					e_name:'4'
+				},
+				type:'POST',//HTTP请求类型    
+				success:function(data){
+					console.log(1);
+					console.log(data);
+				},
+				error:function(xhr,type,errorThrown){
+					//异常处理；
+					console.log(type);
+				}
+			});
+		})
+		
 	</script>
 </html>
